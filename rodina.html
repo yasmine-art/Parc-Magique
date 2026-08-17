@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💦Aquatica_Rodina</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="rodina.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+</head>
+<body>
+    <header>
+        <h1>Aquatica Rodina</h1>
+        <nav>
+            <ul>
+                <li><a href="exple.html" title="home"><i class="fas fa-home"></i></a></li>
+                <li><a href="#services"><i class="fas fa-tools"></i> Services</a></li>
+                <li><a href="#pricing"><i class="fas fa-tags"></i>Tarifs</a></li>
+                <li><a href="#transport"><i class="fas fa-car"></i> Transport</a></li>
+                <li><a href="#horaire"><i class="fas fa-clock"></i> Horaires</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons" id="auth-buttons">
+            <!-- État non connecté -->
+            <button class="auth-button" id="login-btn" onclick="window.location.href='login.html'">
+                <i class="fas fa-sign-in-alt"></i> Connexion
+            </button>
+            
+            <!-- État connecté -->
+            <div class="profile-menu" id="user-profile" style="display: none;">
+                <button class="profile-button" id="profile-btn">
+                    <img src="images/avatar.png" alt="Photo de profil" class="profile-pic">
+                </button>
+                <div class="profile-dropdown">
+                    <a href="profil.html"><i class="fas fa-user"></i> Mon profil</a>
+                    <a href="histo.html"><i class="fas fa-history"></i> Historique</a>
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </div>
+            </div>
+        </div> 
+    </header>
+    <section id="welcome">
+        <div class="welcome-bg-overlay"></div> 
+        <div class="content">
+            <!-- <img src="images/rodina.jpg" alt="Vue panoramique de AquaParc Rodina" class="welcome-image"> -->
+            <div class="text-content">
+                <h2>Bienvenue à AquaParc Rodina</h2>
+                <p>
+                    Découvrez AquaParc Rodina, un univers aquatique unique et détente se rencontrent.  
+                    Profitez de toboggans spectaculaires, piscines à vagues et espaces relaxants pour une expérience inoubliable en famille ou entre amis !
+                </p>
+            </div>
+        </div>
+    </section>
+    <section id="services">
+        <h2><i class="fas fa-tools"></i> Services Annexes</h2>
+        <hr>
+        <ul>
+            <li>🍴 Restaurants et snacks</li>
+            <li> Pâtisserie</li>
+            <li><i class="fas fa-ice-cream"></i> Crèmerie</li>
+            <li>🚻 Sanitaires et douches</li>
+            <li>🅿️ Parking sécurisé</li>
+            <li>👕 Vestiaire</li>
+        </ul>
+        <br>
+        <h2>Galerie</h2><hr>
+        <div class="carousel-container">
+            <!-- Flèche gauche -->
+            <button class="carousel-arrow left-arrow" onclick="moveSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="images/rodina.jpg" alt="Image 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rd1.jpg" alt="Image 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rd2.jpg" alt="Image 3">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rd3.jpg" alt="Image 4">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rd4.jpg" alt="Image 5">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rd5.jpg" alt="Image 6">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rd6.jpg" alt="Image 7">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rd7.jpg" alt="Image 8">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rd8.jpg" alt="Image 9">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rd9.jpg" alt="Image 10">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rd10.jpg" alt="Image 11">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rd11.jpg" alt="Image 12">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/rd12.jpg" alt="Image 13">
+                </div>
+                <div class="carousel-item">
+                    <video height="200" width="200" src="images/rd11.mp4" controls></video>
+                </div>
+            </div>
+    
+            <!-- Flèche droite -->
+            <button class="carousel-arrow right-arrow" onclick="moveSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+    </section>
+        <section id="pricing">
+            <h2><i class="fas fa-price"></i>Tarifs</h2>
+            <hr>
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Type de Billet</th>
+                        <th>Tarif</th>
+                        <th>Description</th>
+                        <th colspan="3">Quantité</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="game">
+                        <td><h3>Adulte</h3></td>
+                        <td><p>Prix : 3500 DA</p></td>
+                        <td>Accès complet aux jeux d'eau et espaces communs.</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </td>
+                        <td> <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button></td>
+                    </tr>
+                    <tr class="game">
+                        <td><h3 title="Enfant moins de 1m20"> Enfant -1m20</h3></td>
+                        <td><p>Prix : 2500 DA</p></td>
+                        <td>Inclus l'accès aux zones pour enfants.</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </td>
+                        <td> <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button></td>
+                    </tr>
+                    <tr class="game">
+                        <td><h3 title="Moins de 80cm"> -80 cm</h3> </td>
+                        <td><p>Prix : 0 DA</p></td>
+                        <td>Tarif réduit pour les Enfants</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </td>
+                        <td> <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button></td>
+                    </tr>
+                    <tr class="game">
+                        <td><h3>Cle casier </h3></td>
+                        <td><p>Prix : 500 DA</p></td>
+                        <td>Casier disponible à la journée.</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </td>
+                        <td> <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+      
+        
+        </section>
+        <section id="transport">
+            <h2><i class="fas fa-car"></i> Moyens de Transport</h2>
+            <hr>
+            <ul>
+                <li><i class="fas fa-taxi"></i> Taxi .</li>
+                <li><i class="fas fa-car"></i> Voiture personnelle .</li>
+        
+            </ul>
+        </section>
+        <section id="horaire">
+            <h2>🕒 Les Horaires</h2>
+            <hr>
+            <ul>
+                <li><strong>Ouverture de park:</strong>10h30</li>
+                <li><strong>Fermeture de park:</strong>18h30</li>
+            </ul>
+        </section>
+    <footer>
+        <div class="social-media">
+            <p>Suivez-nous :</p>
+            <a href="https://www.facebook.com/aquaticarodinaoran" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/aquatica.rodina?igsh=ZmQ4b2s2M2hrMXhu" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.twitter.com/aquaticabyrodina" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/aquaticabyrodina" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/aquaticabyrodina" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+        <p>📞+213 555 55 72 86  |  📞+213 555 55 73 22</p>
+        <p>&copy; 2025 Aquatica By Rodina. Tous droits réservés.</p>
+    </footer>
+
+    <button id="to-top" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+    <!-- Modal -->
+<div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+        <img id="modal-img" src="" alt="">
+        <video id="modal-video" controls style="display: none;"></video>
+    </div>
+</div>
+<div id="panier-circle" title="Panier">
+    <h2 id="panier-icon">🛒</h2> <!-- Icône du panier -->
+</div>
+
+<!-- Ajout du fond semi-transparent pour le modal -->
+<div id="modal-overlay" style="display:none;">
+    <div id="panier-details">
+        <button id="close-modal">✖</button> <!-- Bouton de fermeture -->
+        <div class="panier-list-container"> <!-- Conteneur pour la liste avec scroll -->
+            <h2>Panier</h2>
+            <ul id="panier-list"></ul>
+        </div>
+        <p id="total-price">Total: 0 DA</p>
+        <button id="checkout-button">Payer</button>
+    </div>
+</div>
+<!-- modal pour les alertes -->
+<div id="customAlertOverlay" class="alert-overlay">
+    <div class="alert-box">
+      <div class="alert-icon"></div>
+      <div class="alert-content">
+        <h4 class="alert-title">Titre</h4>
+        <p class="alert-message">Message d'alerte</p>
+      </div>
+      <button class="alert-close">&times;</button>
+      <div class="alert-progress"></div>
+    </div>
+  </div>
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="rodina.js"></script>
+</body>
+</html>
+

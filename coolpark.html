@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Cool Park</title>
+    <link rel="stylesheet" href="coolpark.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+    <header>
+        <h1> Cool Park</h1>
+        <nav>
+            <ul>
+                <li><a href="exple.html" title="home"><i class="fas fa-home"></i></a></li>
+                <li><a href="#services"><i class="fas fa-tools"></i> Services</a></li>
+                <li><a href="#games"><i class="fas fa-gamepad"></i> Attractions</a></li>
+                <li><a href="#transport"><i class="fas fa-car"></i> Transport</a></li>
+                <li><a href="#horaire"><i class="fas fa-clock"></i>  Horaires</a></li>
+                
+            </ul>
+        </nav> 
+        <div class="auth-buttons" id="auth-buttons">
+            <!-- État non connecté -->
+            <button class="auth-button" id="login-btn" onclick="window.location.href='login.html'">
+                <i class="fas fa-sign-in-alt"></i> Connexion
+            </button>
+            
+            <!-- État connecté -->
+            <div class="profile-menu" id="user-profile" style="display: none;">
+                <button class="profile-button" id="profile-btn">
+                    <img src="images/avatar.png" alt="Photo de profil" class="profile-pic">
+                </button>
+                <div class="profile-dropdown">
+                    <a href="profil.html"><i class="fas fa-user"></i> Mon profil</a>
+                    <a href="histo.html"><i class="fas fa-history"></i> Historique</a>
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </div>
+            </div>
+        </div> 
+    </header>
+    <section id="welcome">
+         <div class="welcome-bg-overlay"></div>  
+        <div class="content">
+             <!-- <img src="images/coolPark.jpg" alt="Image d'accueil" class="welcome-image"> -->
+            <div class="text-content">
+                <h2> Bienvenue à Cool Park ! </h2>
+                <p>Venez découvrir un monde magique rempli de jeux, d'aventures et de rires pour toute la famille !  
+                Profitez d'une expérience inoubliable avec nos attractions, notre cafétéria gourmande et nos services dédiés aux enfants.</p>
+            </div>
+        </div>
+    </section>
+    <section id="services">
+        <h2><i class="fas fa-tools"></i> Services Annexes</h2>
+        <hr>
+        <ul>
+            <li>🍴 Restaurants et snacks variés</li>
+            <li>☕ Cafétéria conviviale</li>
+            <li>🚻 Sanitaires</li>
+            <li>🅿️ Parking </li>
+        </ul>
+        <h2>Les vidéo</h2>
+        <hr>
+        <div class="carousel-container">
+            <div class="carousel">
+            <div class="carousel-item">
+                <video src="images/Coolpark1.mp4" controls>
+            </div>
+            <div class="carousel-item">
+                <video src="images/coolpark2.mp4" controls>
+            </div>
+            </div>
+    </section>
+        <section id="games">
+            <h2><i class="fas fa-gamepad"></i>Attractions</h2>
+            <hr>
+            <div class="category-buttons">
+                <button class="category-button" data-category="Famille">Famille</button>
+                <button class="category-button" data-category="Enfant">Enfant</button>
+                <button class="category-button" data-category="Adulte">Adulte</button>
+            </div>
+            <div class="grid-container">
+            <div class="game" data-category="Famille">
+                <img src="images/trampolineCool.jpg" alt="Toboggans Aquatiques" title="Trampoline park">
+                <div title="Acces Enfants(a partir de 1m10),Acces Adultes">
+                    <h3 class="click-here">Trampoline Park</h3>
+                    <p>Prix : 600 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/trampolineCool.jpg" alt="Toboggans Aquatiques" title="Chaussettes Trampoline">
+                <div>
+                    <h3 class="click-here">Chaussettes Trampoline</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/castleCool.jpg" alt="Castle park" title="Castle park">
+                <div title="labyrinthe,toboggan,zipline,piscine a boules,trampoline">
+                    <h3 class="click-here">Castle Park/ 1 heure</h3>
+                    <p>Prix : 800 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+                </div>
+                <div class="game" data-category="Adulte">
+                    <img src="images/kartingCool.jpg" alt="Piscine à Vagues" title="Karting">
+                    <div>
+                        <h3 class="click-here">Karting/ 15 min</h3>
+                        <p>Prix : 1000 DA </p>
+                        <div class="quantity-control">
+                            <button class="quantity-minus">-</button>
+                            <span class="quantity">1</span>
+                            <button class="quantity-plus">+</button>
+                        </div>
+                        <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                    </div>
+                </div>
+            <div class="game" data-category="Famille">
+                <img src="images/lasergameCool.jpg" alt="Piscine à Vagues" title="laser Game">
+                <div>
+                    <h3 class="click-here">Laser Game/ 25 min</h3>
+                    <p>Prix : 1000 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </div>  
+             <!-- <div class="game" data-category="Famille">
+                <img src="images/familypark1.jpg.png" alt="family park" title="family park">
+                <div>
+                    <h3 class="click-here">3D</h3>
+                    <p>Prix : 300 DA </p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+              </div> -->
+            </div>
+        </section>
+        <section id="transport">
+            <h2><i class="fas fa-car"></i> Moyens de Transport</h2>
+            <hr>
+            <ul>
+                <li><i class="fas fa-bus"></i> Bus: ligne 23, 53, P1 .</li>
+                <li><i class="fas fa-taxi" ></i> Taxi .</li>
+                <li><i class="fas fa-car"></i> Voiture personnelle .</li>
+            </ul>
+        </section>
+        <section id="horaire">
+            <h2>🕒 Les Horaires</h2>
+            <hr>
+            <ul>
+                <li>Dimanche: fermé</li>
+                <li>Lundi-Mercredi: 14h00-20h00.</li>
+                <li>Jeudi:14h00-21h00</li>
+                <li>Vendredi:15h00-21h00</li>
+                <li>Samedi:10h00-20h00</li> 
+            </ul>
+        </section>
+        <div id="panier-circle" title="Panier">
+            <h2 id="panier-icon">🛒</h2> <!-- Icône du panier -->
+        </div>
+        
+        <!-- Ajout du fond semi-transparent pour le modal -->
+        <div id="modal-overlay" style="display:none;">
+            <div id="panier-details">
+                <button id="close-modal">✖</button> <!-- Bouton de fermeture -->
+                <div class="panier-list-container"> <!-- Conteneur pour la liste avec scroll -->
+                    <h2>Panier</h2>
+                    <ul id="panier-list"></ul>
+                </div>
+                <p id="total-price">Total: 0 DA</p>
+                <button id="checkout-button">Payer</button>
+            </div>
+        </div>
+    <footer>
+        <div class="social-media">
+            <p>Suivez-nous :</p>
+            <a href="https://www.facebook.com/Cool Park Oran" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/coolpark_oran" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.tiktok.com/coolpark_oran" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="mailto:contact.coolpark@gmail.com" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fas fa-envelope"></i> <!-- Icône Email -->
+            </a>
+        </div>
+        <p > 📞+213 6 59 94 56 98</p>
+        <p>&copy; 2025 Cool Park. Tous droits réservés.</p>
+    </footer>
+
+    <button id="to-top" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+   
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modal-img" src="" alt="">
+            <video id="modal-video" controls style="display: none;"></video>
+        </div>
+    </div>
+
+    <script src="coolpark.js"></script>
+</body>
+</html>

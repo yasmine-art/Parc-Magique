@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - Parc Magique</title>
+    <link rel="stylesheet" href="register.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/solid/star.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <a href="exple.html" class="home-button">
+        <i class="fas fa-home"></i> 
+    </a>
+    <main class="login-container">
+        <!-- Section Image -->
+        <section class="login-image">
+            <img src="images/parc1.jpg" alt="Parc Magique">
+        </section>
+        <!-- Section Formulaire -->
+        <section class="login-form">
+            <h1> Inscription</h1>
+            <form action="inscrire.php" method="POST" class="auth-form" novalidate>
+                <div class="form-group">
+                    <label for="nom"><i class="fas fa-user"></i> Nom complet :</label>
+                    <input type="text" id="nom" name="nom" placeholder="Entrez votre nom complet" required>
+                </div>
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email :</label>
+                    <input type="email" id="email" name="email" placeholder="Entrez votre email" required>
+                </div>
+                <div class="form-group">
+                    <label for="pass"><i class="fas fa-lock"></i> Mot de passe :</label>
+                    <input type="password" id="pass" name="pass" placeholder="Entrez votre mot de passe" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password"><i class="fas fa-lock"></i> Confirmez le mot de passe :</label>
+                    <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirmez votre mot de passe" required>
+                </div>
+                <div class="form-footer">
+                    <p>Déja inscrit!   <a href="login.html" class="redirect-login">Se connecter</a></p>
+                    <button type="submit" class="btn-submit">S'inscrire</button>
+                </div>     
+            </form>
+        </section>
+    </main>
+</body>  
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".auth-form");
+    const nomInput = document.getElementById("nom");
+    const emailInput = document.getElementById("email");
+    const passInput = document.getElementById("pass");
+    const confirmPassInput = document.getElementById("confirm-password");
+
+    function showError(input, message) {
+        let errorDiv = input.parentNode.querySelector(".error-message");
+        if (!errorDiv) {
+            errorDiv = document.createElement("div");
+            errorDiv.className = "error-message";
+            errorDiv.style.color = "red";
+            errorDiv.style.fontSize = "0.5em";
+            errorDiv.style.marginTop = "1px";
+            input.parentNode.appendChild(errorDiv);
+        }
+        errorDiv.textContent = message;
+    }
+
+    function clearError(input) {
+        const errorDiv = input.parentNode.querySelector(".error-message");
+        if (errorDiv) {
+            errorDiv.textContent = "";
+        }
+    }
+
+    form.addEventListener("submit", function (event) {
+        let valid = true;
+
+        if (!nomInput.value.trim()) {
+            showError(nomInput, "Veuillez entrer votre nom complet.");
+            valid = false;
+        } else {
+            clearError(nomInput);
+        }
+
+        if (!emailInput.value.trim() || !validateEmail(emailInput.value)) {
+            showError(emailInput, "Veuillez entrer une adresse email valide.");
+            valid = false;
+        } else {
+            clearError(emailInput);
+        }
+
+        if (passInput.value.length < 6) {
+            showError(passInput, "Le mot de passe doit contenir au moins 6 caractères.");
+            valid = false;
+        } else {
+            clearError(passInput);
+        }
+
+        if (passInput.value !== confirmPassInput.value) {
+            showError(confirmPassInput, "Les mots de passe ne correspondent pas.");
+            valid = false;
+        } else {
+            clearError(confirmPassInput);
+        }
+
+        if (!valid) {
+            event.preventDefault();
+        }
+    });
+
+    function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+    }
+
+    // Ajouter une icône pour afficher/masquer le mot de passe
+    function addTogglePassword(inputField) {
+        const wrapper = document.createElement("div");
+        wrapper.style.position = "relative";
+        
+        inputField.parentNode.insertBefore(wrapper, inputField);
+        wrapper.appendChild(inputField);
+        
+        const togglePassword = document.createElement("span");
+        togglePassword.innerHTML = '<i class="fas fa-eye"></i>';
+        togglePassword.style.position = "absolute";
+        togglePassword.style.right = "10px";
+        togglePassword.style.top = "50%";
+        togglePassword.style.transform = "translateY(-50%)";
+        togglePassword.style.cursor = "pointer";
+
+        wrapper.appendChild(togglePassword);
+
+        togglePassword.addEventListener("click", function () {
+            if (inputField.type === "password") {
+                inputField.type = "text";
+                togglePassword.innerHTML = '<i class="fas fa-eye-slash"></i>';
+            } else {
+                inputField.type = "password";
+                togglePassword.innerHTML = '<i class="fas fa-eye"></i>';
+            }
+        });
+    }
+
+    addTogglePassword(passInput);
+    addTogglePassword(confirmPassInput);
+});
+document.addEventListener('DOMContentLoaded', function() {
+    const userData = JSON.parse(localStorage.getItem('userData'));
+    
+    if (userData) {
+        // Afficher la date formatée
+        const joinDate = userData.date_inscription ? 
+            new Date(userData.date_inscription).toLocaleDateString('fr-FR', {
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            }) : 'Inconnue';
+        
+        document.getElementById('detail-join-date').textContent = joinDate;
+    }
+});
+
+</script>  
+</html>

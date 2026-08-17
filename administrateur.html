@@ -1,0 +1,412 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Parc Magic</title>
+    <link rel="stylesheet" href="administrateur.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/solid/star.svg" type="image/svg+xml">
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+          
+            <div class="sidebar-header">
+                <h3><i class="fas fa-magic"></i><span class="menu-text"> Parc Magique</span></h3>
+                
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="#dashboard" class="active" data-tooltip="Dashboard"><i title="Parcs" class="fas fa-tree"></i><span class="menu-text">Gestion des Parcs</span></a></li>
+                <li><a href="#admins" data-tooltip="Admins" ><i title="Admins" class="fas fa-user-shield"></i><span class="menu-text"> Gestion des Admins</span></a></li>
+                <li><a href="#users" data-tooltip="Utilisateurs"><i title="Users" class="fas fa-users"></i><span class="menu-text"> Gestion des Clients</span></a></li>
+                <li><a href="#stats" data-tooltip="Statistiques"><i title="statistiques" class="fas fa-chart-bar"></i><span class="menu-text"> Statistiques</span></a></li>
+                 <!-- <li><a href="#profile" data-tooltip="Profil"><i title="profil" class="fas fa-user"></i><span class="menu-text"> Mon profil</span></a></li>  -->
+                <li><a href="#" class="logout-link" onclick="confirmLogout()" data-tooltip="Déconnexion"><i title="Déconnexion" class="fas fa-sign-out-alt"></i><span class="menu-text"> Déconnexion</span></a></li>
+            </ul>
+            <button id="collapse-btn" class="collapse-btn">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+        </nav>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <header class="admin-header">
+                <div class="header-content">
+                    <h1>Tableau de Bord Administrateur</h1>
+                    <div class="user-profile">
+                        <button class="profile-button">
+                            <img src="images/avatar.png" alt="Admin" class="profile-pic">
+                        </button>
+                        <div class="profile-dropdown">
+                            <a href="profil.html"><i class="fas fa-user"></i> Mon profil</a>
+                            <a href="#" class="logout-link" onclick="confirmLogout()"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            
+              <!-- Dashboard Section -->
+              <section id="dashboard" class="content-section active">
+                <h2><i class="fas fa-tachometer-alt"></i> Vue d'ensemble</h2>
+                <button id="add-park-dashboard" class="action-button">
+                    <i class="fas fa-plus"></i> Ajouter un parc
+                </button>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <i class="fas fa-tree"></i>
+                        <h3 id="park-count">0</h3> <!-- Initialement 0, sera mis à jour par JS -->
+                        <p>Parcs actifs</p>
+                    </div>
+                </div>
+            
+                <button id="load-parks-btn" >Afficher les parcs</button>  <!-- Bouton pour afficher les parcs -->
+            
+                <!-- La section dynamique sera ajoutée via JavaScript -->
+                 <!-- Modal pour ajouter un parc -->
+<div id="add-park-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <h2><i class="fas fa-plus-circle"></i> Ajouter un nouveau parc</h2>
+        <form id="add-park-form">
+            <div class="form-group">
+                <label for="park-name">Nom du parc:</label>
+                <input type="text" id="park-name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="park-type">Type de parc:</label>
+                <select id="park-type" name="type" required>
+                    <option value="manege">Manège</option>
+                    <option value="aquaparc">Aquaparc</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="park-image">URL de l'image:</label>
+                <input type="text" id="park-image" name="image" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="park-link">Lien vers le parc:</label>
+                <input type="text" id="park-link" name="link" required>
+            </div>
+            
+            <button type="submit" class="action-button">
+                <i class="fas fa-save"></i> Enregistrer
+            </button>
+        </form>
+    </div>
+</div>
+            </section>
+            
+            <!-- Parks Management Section -->
+            <section id="parks" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-tree"></i> Gestion des Parcs</h2>
+                    <button id="add-park-button" class="action-button">
+                        <i class="fas fa-plus"></i> Ajouter un parc
+                    </button>
+                </div>
+                
+                <div class="filter-container">
+                    <div class="category-buttons">
+                        <button class="category-button active" data-category="all">Tous</button>
+                        <button class="category-button" data-category="aquaparc">Aquaparcs</button>
+                        <button class="category-button" data-category="manege">Manèges</button>
+                    </div>
+                    <div class="search-box">
+                        <input type="text" id="park-search" placeholder="Rechercher un parc...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table id="parks-table">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Nom</th>
+                                <th>Catégorie</th>
+                                <th>Statut</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="parks-list">
+                            <!-- Liste dynamique des parcs -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <!-- Park Modal -->
+                <div id="park-modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close-modal">&times;</span>
+                        <h3 id="modal-title">Ajouter un nouveau parc</h3>
+                        <form id="park-form">
+                            <input type="hidden" id="park-id">
+                            <div class="form-group">
+                                <label for="park-name">Nom du parc</label>
+                                <input type="text" id="park-name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="park-category">Catégorie</label>
+                                <select id="park-category" required>
+                                    <option value="">Sélectionnez...</option>
+                                    <option value="manege">Manège</option>
+                                    <option value="aquaparc">Aquaparc</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="park-image">Image URL</label>
+                                <input type="text" id="park-image" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="park-status">Statut</label>
+                                <select id="park-status" required>
+                                    <option value="active">Actif</option>
+                                    <option value="inactive">Inactif</option>
+                                    <option value="maintenance">En maintenance</option>
+                                </select>
+                            </div>
+                            <div class="form-actions">
+                                <button type="submit" class="save-btn">Enregistrer</button>
+                                <button type="button" class="cancel-btn">Annuler</button>
+                            </div>
+                        </form>
+                    </div>
+                </div> 
+            </section>
+
+<!--  la section Gestion des Admins -->
+<section id="admins" class="content-section">
+    <div class="section-header">
+        <h2><i class="fas fa-user-shield"></i> Gestion des Administrateurs</h2>
+        <div class="action-buttons-container">
+            <button id="add-admin-button" class="action-button">
+                <i class="fas fa-plus"></i> Ajouter Admin
+            </button>
+            <button id="refresh-admins" class="action-button">
+                <i class="fas fa-sync-alt"></i> Actualiser
+            </button>
+        </div>
+    </div>
+    
+    <div class="table-container">
+        <table id="users-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nom</th>
+                    <th>Email</th>
+                    <th>Date Inscription</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="admins-list">
+                <tr>
+                    <td colspan="5" class="loading-message">Chargement en cours...</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Admin Modal -->
+    <div id="admin-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 id="admin-modal-title">Ajouter un nouvel administrateur</h3>
+            <form id="admin-form">
+                <div class="form-group">
+                    <label for="admin-name">Nom complet</label>
+                    <input type="text" id="admin-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-email">Email</label>
+                    <input type="email" id="admin-email" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-password">Mot de passe</label>
+                    <input type="password" id="admin-password" required>
+                </div>
+                <div class="form-group">
+                    <label for="admin-confirm-password">Confirmer le mot de passe</label>
+                    <input type="password" id="admin-confirm-password" required>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="save-btn">Enregistrer</button>
+                    <button type="button" class="cancel-btn">Annuler</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+
+ 
+            <!-- Users Management Section -->
+            <section id="users" class="content-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-users"></i> Gestion des Clients</h2>
+                    <button id="refresh-users" class="action-button">
+                        <i class="fas fa-sync-alt"></i> Actualiser
+                    </button>
+                </div>
+                
+                <div class="table-container">
+                    <table id="users-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Utilisateur</th>
+                                <th>Email</th>
+                                <th>Date Inscription</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-list">
+                            <tr>
+                                <td colspan="5" class="loading-message">Chargement en cours...</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Statistics Section -->
+            <section id="stats" class="content-section">
+                <h2><i class="fas fa-chart-bar"></i> Statistiques</h2>
+                <div class="stats-container">
+                    <!-- Cartes existantes -->
+                    <div class="stat-card">
+                        <i class="fas fa-users"></i>
+                        <h3 id="total-users">0</h3>
+                        <p>Total Clients</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-user-shield"></i>
+                        <h3 id="total-admins">0</h3>
+                        <p>Total Admins</p>
+                    </div>
+                    
+                    <!-- Nouvelle carte avec cercle combiné -->
+                    <div class="stat-card combined-stats">
+                        <div class="progress-circle-container">
+                            <div class="progress-circle" id="combined-circle">
+                                <svg class="circle-chart" viewBox="0 0 36 36">
+                                    <!-- Fond du cercle -->
+                                    <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <!-- Segment pour les admins -->
+                                    <path class="circle-fill-admin" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                    <!-- Segment pour les clients -->
+                                    <path class="circle-fill-user" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+                                </svg>
+                                <div class="circle-info">
+                                   
+                                    <h3 id="total-members">0</h3>
+                                    <p>Total Membres</p>
+                                </div>
+                            </div>
+                            <div class="circle-legend">
+                                <div class="legend-item">
+                                    <span class="legend-color admin-color"></span>
+                                    <span>Admins</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="legend-color user-color"></span>
+                                    <span>Clients</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+<!-- Ajoutez cette section dans le main-content -->
+<section id="profile" class="content-section">
+    <h2><i class="fas fa-user"></i> Mon Profil</h2>
+    <div class="profile-container">
+        <div class="profile-header">
+            <img src="images/avatar.png" alt="Photo de profil" class="profile-avatar" id="profile-avatar">
+            <h3 id="profile-name">Chargement...</h3>
+            <p class="profile-role" id="profile-role">Administrateur</p>
+        </div>
+        
+        <div class="profile-details">
+            <div class="detail-row">
+                <span class="detail-label"><i class="fas fa-envelope"></i> Email:</span>
+                <span class="detail-value" id="profile-email">Chargement...</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label"><i class="fas fa-calendar-alt"></i> Date d'inscription:</span>
+                <span class="detail-value" id="profile-join-date">Chargement...</span>
+            </div>
+            <div class="detail-row">
+                <span class="detail-label"><i class="fas fa-clock"></i> Dernière connexion:</span>
+                <span class="detail-value" id="profile-last-login">Chargement...</span>
+            </div>
+        </div>
+    </div> 
+</section>
+        </div>
+    </div>
+
+    <!-- User Details Modal -->
+    <div id="user-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Détails de l'utilisateur</h2>
+            <div id="user-details">
+                <div class="user-detail-row">
+                    <span class="user-detail-label">ID:</span>
+                    <span id="detail-id" class="user-detail-value"></span>
+                </div>
+                <div class="user-detail-row">
+                    <span class="user-detail-label">Nom:</span>
+                    <span id="detail-name" class="user-detail-value"></span>
+                </div>
+                <div class="user-detail-row">
+                    <span class="user-detail-label">Email:</span>
+                    <span id="detail-email" class="user-detail-value"></span>
+                </div>
+                <div class="user-detail-row">
+                    <span class="user-detail-label">Date d'inscription:</span>
+                    <span id="detail-join-date" class="user-detail-value"></span>
+                </div>
+                <div class="user-detail-row">
+                    <span class="user-detail-label">Statut:</span>
+                    <span id="detail-status" class="user-detail-value"></span>
+                </div>
+                <div class="user-detail-row">
+                    <span class="user-detail-label">Dernière connexion:</span>
+                    <span id="detail-last-login" class="user-detail-value"></span>
+                </div>
+            </div>
+            <button id="close-modal" class="modal-close-btn">Fermer</button>
+        </div>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+    const collapseBtn = document.getElementById('collapse-btn');
+    const sidebar = document.querySelector('.sidebar');
+    
+    // Gestion du clic sur le bouton
+    collapseBtn.addEventListener('click', function() {
+        sidebar.classList.toggle('collapsed');
+        
+        // Sauvegarde l'état dans le localStorage
+        localStorage.setItem('sidebarCollapsed', sidebar.classList.contains('collapsed'));
+    });
+    
+    // Restaurer l'état au chargement
+    if (localStorage.getItem('sidebarCollapsed') === 'true') {
+        sidebar.classList.add('collapsed');
+    }
+});
+    </script>
+
+    <script src="administrateur.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

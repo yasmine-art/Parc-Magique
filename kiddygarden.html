@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Kiddy Garden</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="kiddygarden.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1> Kiddy Garden</h1>
+        <nav>
+            <ul>
+                <li><a href="exple.html" title="Home"><i class="fas fa-home"></i> </a></li>
+                <li><a href="#services"><i class="fas fa-tools"></i> Services</a></li>
+                <li><a href="#games"><i class="fas fa-gamepad"></i>Attraction</a></li>
+                
+                <li><a href="#transport"><i class="fas fa-car"></i> Transport</a></li>
+                <li><a href="#horaire"><i class="fas fa-clock"></i> Horaires</a></li>
+               
+            </ul>
+        </nav>
+        <div class="auth-buttons" id="auth-buttons">
+            <!-- État non connecté -->
+            <button class="auth-button" id="login-btn" onclick="window.location.href='login.html'">
+                <i class="fas fa-sign-in-alt"></i> Connexion
+            </button>
+            
+            <!-- État connecté -->
+            <div class="profile-menu" id="user-profile" style="display: none;">
+                <button class="profile-button" id="profile-btn">
+                    <img src="images/avatar.png" alt="Photo de profil" class="profile-pic">
+                </button>
+                <div class="profile-dropdown">
+                    <a href="profil.html"><i class="fas fa-user"></i> Mon profil</a>
+                    <a href="histo.html"><i class="fas fa-history"></i> Historique</a>
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </div>
+            </div>
+        </div> 
+    </header>
+    <section id="welcome">
+        <div class="welcome-bg-overlay"></div> 
+        <div class="content">
+            <!-- <img src="images/kiddyGarden.jpg" alt="Image d'accueil" class="welcome-image"> -->
+            <div class="text-content">
+                <h2> Bienvenue à Kiddy Garden ! </h2>
+                <p>Venez découvrir un monde magique rempli de jeux, d'aventures et de rires pour toute la famille !  
+                Profitez d'une expérience inoubliable avec nos attractions, notre cafétéria gourmande et nos services dédiés aux enfants.</p>
+            </div>
+        </div>
+    </section>
+    <section id="services">
+        <h2><i class="fas fa-tools"></i> Services Annexes</h2>
+        <hr>
+            <ul>
+                <li><i class="fas fa-coffee"></i>  Cafétéria</li>
+                <li><i class="fas fa-pizza-slice"></i>  Pizzeria</li>
+                <li><i class="fas fa-toilet"></i>  Sanitaires</li>
+                <li><i class="fas fa-parking"></i>  Parking</li>
+                </ul>
+                <h2>Les vidéo</h2>
+                <hr>
+                <div class="grid-container">
+                    <div class="game">
+                        <video height="200" width="100%" src="images/videoKiddy1.mp4" controls></video>
+                    </div>
+                    <div class="game">
+                        <video height="200" width="100%" src="images/Kiddy2.mp4" controls></video>
+                    </div>
+                </div>
+    </section>
+    <section id="games"> 
+        <h2><i class="fas fa-gamepad"></i>attractions</h2>
+        <hr>
+        <div class="grid-container">
+            <div class="game" data-category="Famille">
+                <img src="images/kiddyGarden.jpg" alt="kiddy garden" title="kiddy garden">
+                <div>
+                    <h3 class="click-here">1 Heure</h3>
+                    <p>Prix : 800 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/kiddyGarden.jpg" alt="kiddy garden" title="kiddy garden">
+                <div>
+                    <h3 class="click-here">1h30</h3>
+                    <p>Prix : 1000 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/kiddyGarden.jpg" alt="kiddy garden" title="kiddy garden">
+                <div>
+                    <h3 class="click-here">Temps illimite + Goute</h3>
+                    <p>Prix : 1500 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-cart-plus"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+        <section id="transport">
+            <h2><i class="fas fa-car"></i> Moyens de Transport</h2>
+         
+            <hr>
+            <ul>
+                <li><i class="fas fa-bus"></i> Bus : ligne 23.</li>
+                <li><i class="fas fa-taxi"></i> Taxi , Yassir ou Heetch sont disponibles pour vous rendre à Kiddy Garden. .</li>
+                <li><i class="fas fa-car"></i> Voiture personnelle .</li>
+            </ul>
+        </section>
+        <section id="horaire">
+            <h2>🕒 Les Horaires</h2>
+            <hr>
+            <ul>
+                <li><i class="fas fa-calendar"></i>Dimanche : 14h30-20h30</li>
+                <li><i class="fas fa-calendar"></i>Lundi: 14h30-20h30.</li>
+                <li><i class="fas fa-calendar"></i>Mardi: 14h30-20h30</li>
+                <li><i class="fas fa-calendar"></i>Mercredi: 14h30-20h30</li>
+                <li><i class="fas fa-calendar"></i>Jeudi: 14h30-21h30</li>
+                <li><i class="fas fa-calendar"></i>Vendredi: 14h30-21h30</li>
+                <li><i class="fas fa-calendar"></i>Samedi: 14h30-21h30</li>
+                
+            </ul>
+        </section>
+        <div id="panier-circle" title="Panier">
+            <h2 id="panier-icon">🛒</h2> <!-- Icône du panier -->
+        </div>
+        
+        <!-- Ajout du fond semi-transparent pour le modal -->
+        <div id="modal-overlay" style="display:none;">
+            <div id="panier-details">
+                <button id="close-modal">✖</button> <!-- Bouton de fermeture -->
+                <div class="panier-list-container"> <!-- Conteneur pour la liste avec scroll -->
+                    <h2>Panier</h2>
+                    <ul id="panier-list"></ul>
+                </div>
+                <p id="total-price">Total: 0 DA</p>
+                <button id="checkout-button">Payer</button>
+            </div>
+        </div>
+    <footer>
+        <div class="social-media">
+            <p>Suivez-nous :</p>
+            <a href="https://www.facebook.com/kiddyGarden" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/kiddyGarden" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-instagram"></i>
+            </a>
+          
+            <a href="https://www.tiktok.com/kiddyGarden" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+        <p>•<strong> Adresse :</strong> 3ème Boulevard Périphérique, Hai Zitoune, Oran, Algérie.</p>
+        <p>&copy; 2025 Kiddy Garden. Tous droits réservés.</p>
+    </footer>
+
+    <button id="to-top" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modal-img" src="" alt="">
+            <video id="modal-video" controls style="display: none;"></video>
+        </div>
+    </div>
+
+
+    <div id="customAlertOverlay" class="alert-overlay">
+        <div class="alert-box">
+          <div class="alert-icon"></div>
+          <div class="alert-content">
+            <h4 class="alert-title">Titre</h4>
+            <p class="alert-message">Message d'alerte</p>
+          </div>
+          <button class="alert-close">&times;</button>
+          <div class="alert-progress"></div>
+        </div>
+      </div>
+    <script src="kiddygarden.js"></script>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎢 Parcs d'Attractions d'Oran 🎡</title>
+    <link rel="stylesheet" href="exple.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/solid/star.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-magic"></i> Parc Magique</h1>
+        <nav>
+            <ul>
+                <li style="--i: 1;"><a href="#features"><i class="fas fa-qrcode"></i> Fonctionnalités</a></li>
+                <li style="--i: 2;"><a href="#parks"><i class="fas fa-tree"></i> Parks</a></li>
+                <li style="--i: 3;"><a href="#about"><i class="fas fa-info-circle"></i> À propos</a></li>
+            </ul>
+        </nav> 
+        <div class="auth-buttons" id="auth-buttons">
+            <!-- État non connecté -->
+            <button class="auth-button" id="login-btn" title="Connexion" onclick="window.location.href='login.html'">
+                <i class="fas fa-sign-in-alt"></i> Connexion
+            </button>
+            <!-- État connecté -->
+            <div class="profile-menu" id="user-profile" style="display: none;">
+                <button class="profile-button" id="profile-btn" title="Profil">
+                    <img src="images/avatar.png" alt="Photo de profil" class="profile-pic">
+                </button>
+                <div class="profile-dropdown">
+                    <a href="profil.html"><i class="fas fa-user"></i> Mon profil</a>
+                    <a href="histo.html"><i class="fas fa-history"></i> Historique </a>
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </div>
+            </div>
+        </div> 
+    </header>
+    <section id="welcome">
+        <div class="welcome-bg-overlay"></div> <!-- Overlay optionnel -->
+        <div class="content">
+           
+            <div class="text-content">
+                <h2>Bienvenue sur notre guide des loisirs à Oran</h2>
+                <p>Découvrez les meilleurs endroits pour vous divertir : parcs d'attractions et aquaparcs !</p>
+                
+                <!-- Ajout de la barre de recherche -->
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" id="search-input" placeholder="Rechercher un parc...">
+                        <button id="search-btn"><i class="fas fa-search"></i></button>
+                    </div>
+                    <div id="search-results" class="search-results"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="features">
+        <h2>Nos Fonctionnalités</h2>
+        <hr>
+        <p>Découvrez les fonctionnalités essentielles pour profiter pleinement de nos parcs et attractions.</p>
+    
+        <div class="feature">
+            <i class="fas fa-bus"></i>
+            <h3>Moyens de transport</h3>
+            <p>Découvrez les options de transport disponibles pour accéder aux parcs.</p>
+        </div>
+    
+        <div class="feature">
+            <i class="fas fa-calendar-alt"></i>
+            <h3>Horaires</h3>
+            <p>Consultez les horaires.</p>
+        </div>
+        
+        <div class="feature">
+            <i class="fas fa-info-circle"></i>
+            <h3>Infos</h3>
+            <p>Des détails sur les attractions et services.</p>
+        </div>
+    </section>       
+    <section id="parks">
+        <h2>Les parcs</h2>
+        <hr>
+        
+        <div class="category-buttons">
+            <button class="category-button active" data-category="all">Tous</button>
+            <button class="category-button" data-category="aquaparc">Aquaparcs</button>
+            <button class="category-button" data-category="manege">Manèges</button>
+        </div>
+    
+        <div class="parks-container">
+            <!-- Les parcs seront chargés dynamiquement ici -->
+            <div class="parks-list active" id="all-parks">
+                <ul id="parks-list-all"></ul>
+            </div>
+            
+            <div class="parks-list" id="aquaparc-parks">
+                <ul id="parks-list-aquaparc"></ul>
+            </div>
+            
+            <div class="parks-list" id="manege-parks">
+                <ul id="parks-list-manege"></ul>
+            </div>
+        </div>
+    </section>
+        
+    
+    <section id="about">
+        <h2>À propos de nous</h2>
+        <hr>
+        <p>Chez nous, l'expérience client est au cœur de tout ce que nous faisons. Nous croyons que chaque détail compte, de la vente de tickets à la gestion des entrées, pour créer des souvenirs inoubliables.</p>
+        <div class="about-content">
+            <div class="about-item">
+                <i class="fas fa-smile"></i>
+                <h3>Votre satisfaction</h3>
+                <p>Nous mettons tout en œuvre pour répondre à vos attentes.</p>
+            </div>
+            <div class="about-item">
+                <i class="fas fa-headset"></i>
+                <h3>Support personnalisé</h3>
+                <p>Une équipe dédiée pour vous accompagner à chaque étape.</p>
+            </div>
+            <div class="about-item">
+                <i class="fas fa-hand-holding-heart"></i>
+                <h3>Notre engagement</h3>
+                <p>Nous soutenons les parcs locaux et leurs communautés.</p>
+            </div>
+        </div>
+    </section>
+    
+    <button id="back-to-top" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+    
+    <footer>
+        <p target="_blank" style="margin: 0 10px; font-size: 1.5rem;">
+            ✉️<a href="mailto:parc_magic@gmail.com" target="_blank"> parc_magic@gmail.com</a>
+        </p>
+        <p>📞+213 771 428 259 | 📞+213 549 729 686</p>
+        <p id="copyright">&copy; 2025 Parc Magic. Tous droits réservés.</p>
+    </footer>
+    
+    <script src="exple.js"></script>
+    <script>
+        // Gestion de l'état de connexion
+        document.addEventListener('DOMContentLoaded', function() {
+            const userData = localStorage.getItem('userData');
+            const loginBtn = document.getElementById('login-btn');
+            const userProfile = document.getElementById('user-profile');
+            
+            if (userData) {
+                const user = JSON.parse(userData);
+                loginBtn.style.display = 'none';
+                userProfile.style.display = 'flex';
+                
+                // Mettre à jour les infos utilisateur
+                const username = userProfile.querySelector('.username');
+                username.textContent = user.nom || user.email;
+                
+                // Si photo de profil existe
+                if (user.photo) {
+                    const profilePic = userProfile.querySelector('.profile-pic');
+                    profilePic.src = user.photo;
+                }
+            }
+            
+            // Animation pour le menu dropdown
+            userProfile.addEventListener('click', function(e) {
+                if (e.target.closest('.profile-dropdown')) return;
+                const dropdown = this.querySelector('.profile-dropdown');
+                dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+            });
+            
+            // Fermer le dropdown en cliquant ailleurs
+            document.addEventListener('click', function(e) {
+                if (!e.target.closest('.user-profile')) {
+                    const dropdown = document.querySelector('.profile-dropdown');
+                    if (dropdown) dropdown.style.display = 'none';
+                }
+            });
+        });
+        document.addEventListener('DOMContentLoaded', function() {
+    // Fonction pour charger les parcs depuis l'API
+    function loadParks() {
+        fetch('get_parks1.php') // Remplacez par votre endpoint API
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    displayParks(data.parks);
+                } else {
+                    console.error('Erreur lors du chargement des parcs:', data.message);
+                }
+            })
+            .catch(error => console.error('Erreur:', error));
+    }
+
+    // Fonction pour afficher les parcs dans les différentes listes
+    function displayParks(parks) {
+        const allParksList = document.getElementById('parks-list-all');
+        const aquaparcList = document.getElementById('parks-list-aquaparc');
+        const manegeList = document.getElementById('parks-list-manege');
+
+        // Vider les listes existantes
+        allParksList.innerHTML = '';
+        aquaparcList.innerHTML = '';
+        manegeList.innerHTML = '';
+
+        // Parcourir tous les parcs et les ajouter aux listes appropriées
+        parks.forEach(park => {
+            const parkItem = createParkItem(park);
+            
+            // Ajouter à la liste "Tous"
+            allParksList.appendChild(parkItem.cloneNode(true));
+            
+            // Ajouter à la liste spécifique selon le type
+            if (park.type === 'aquaparc') {
+                aquaparcList.appendChild(parkItem.cloneNode(true));
+            } else if (park.type === 'manege') {
+                manegeList.appendChild(parkItem.cloneNode(true));
+            }
+        });
+    }
+
+    // Fonction pour créer un élément de parc
+    function createParkItem(park) {
+        const li = document.createElement('li');
+        li.className = park.type;
+        
+        // Créer l'image si elle existe
+        const img = document.createElement('img');
+        img.src = park.image || 'images/default-park.jpg';
+        img.alt = park.nom;
+        img.title = park.nom;
+        
+        // Créer le lien
+        const a = document.createElement('a');
+        a.href = park.lien;
+        
+        // Ajouter une icône selon le type de parc
+        const icon = document.createElement('i');
+        icon.className = park.type === 'aquaparc' ? 'fas fa-swimming-pool' : 'fas fa-carousel';
+        
+        a.appendChild(icon);
+        a.appendChild(document.createTextNode(' ' + park.nom));
+        
+        // Ajouter tous les éléments au li
+        li.appendChild(img);
+        li.appendChild(a);
+        
+        return li;
+    }
+
+    // Charger les parcs au chargement de la page
+    loadParks();
+});
+    </script>
+</body>
+</html>

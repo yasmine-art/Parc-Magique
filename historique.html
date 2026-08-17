@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historique des Tickets - Parc Magique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #b36572;
+            --secondary-color: rgb(242,192,175);
+            --background-color: mistyrose;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+        
+        .home-button {
+            position: fixed;
+            top: 8px;
+            left: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .home-button:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+        }
+        
+        .filter-section {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            border: 2px solid var(--primary-color);
+            background: white;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
+        }
+        
+        .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .tickets-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .ticket-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .ticket-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        
+        .ticket-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 1rem;
+            position: relative;
+        }
+        
+        .ticket-title {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+        
+        .ticket-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            color: var(--primary-color);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        .ticket-body {
+            padding: 1.5rem;
+        }
+        
+        .ticket-info {
+            margin-bottom: 1rem;
+        }
+        
+        .ticket-info p {
+            margin: 0.5rem 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .ticket-info strong {
+            color: var(--primary-color);
+        }
+        
+        .ticket-actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1.5rem;
+        }
+        
+        .action-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s;
+        }
+        
+        .view-btn {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .download-btn {
+            background: #f0f0f0;
+            color: #333;
+        }
+        
+        .action-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .empty-message {
+            text-align: center;
+            padding: 3rem;
+            grid-column: 1 / -1;
+        }
+        
+        .empty-message i {
+            font-size: 3rem;
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .tickets-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-section {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <a href="exple.html" class="home-button">
+        <i class="fas fa-home"></i>Accueil 
+    </a>
+    
+    <header class="header">
+        <h1><i class="fas fa-history"></i> Historique de vos Tickets</h1>
+    </header>
+    
+    <div class="container">
+        <div class="filter-section">
+            <button class="filter-btn active" data-filter="all">Tous</button>
+            <button class="filter-btn" data-filter="upcoming">À venir</button>
+            <button class="filter-btn" data-filter="used">Utilisés</button>
+            <button class="filter-btn" data-filter="cancelled">Annulés</button>
+        </div>
+        
+        <div class="tickets-list" id="tickets-container">
+            <!-- Les tickets seront générés dynamiquement ici -->
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Récupérer l'historique depuis le localStorage
+            const ticketsHistory = JSON.parse(localStorage.getItem('ticketsHistory')) || [];
+            
+            // Fonction pour afficher les tickets
+            function displayTickets(filter = 'all') {
+                const container = document.getElementById('tickets-container');
+                container.innerHTML = '';
+                
+                const filteredTickets = filter === 'all' 
+                    ? ticketsHistory 
+                    : ticketsHistory.filter(ticket => ticket.status === filter);
+                
+                if (filteredTickets.length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-message">
+                            <i class="far fa-calendar-times"></i>
+                            <h3>Aucun ticket trouvé</h3>
+                            <p>Vous n'avez aucun ticket dans votre historique.</p>
+                            <a href="exple.html" class="action-btn view-btn">
+                                <i class="fas fa-ticket-alt"></i> Réserver maintenant
+                            </a>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                filteredTickets.forEach((ticket, index) => {
+                    const ticketCard = document.createElement('div');
+                    ticketCard.className = 'ticket-card';
+                    ticketCard.dataset.status = ticket.status;
+                    
+                    // Déterminer la couleur du statut
+                    let statusColor = '';
+                    let statusText = '';
+                    switch(ticket.status) {
+                        case 'upcoming':
+                            statusColor = '#28a745';
+                            statusText = 'À venir';
+                            break;
+                        case 'used':
+                            statusColor = '#17a2b8';
+                            statusText = 'Utilisé';
+                            break;
+                        case 'cancelled':
+                            statusColor = '#dc3545';
+                            statusText = 'Annulé';
+                            break;
+                    }
+                    
+                    ticketCard.innerHTML = `
+                        <div class="ticket-header">
+                            <h3 class="ticket-title">${ticket.parkName}</h3>
+                            <span class="ticket-status" style="background: ${statusColor === '#dc3545' ? 'white' : statusColor}; color: ${statusColor === '#dc3545' ? '#dc3545' : 'white'}">${statusText}</span>
+                        </div>
+                        <div class="ticket-body">
+                            <div class="ticket-info">
+                                <p><strong>Date :</strong> <span>${ticket.visitDate}</span></p>
+                                <p><strong>Nom :</strong> <span>${ticket.name}</span></p>
+                                <p><strong>Email :</strong> <span>${ticket.email}</span></p>
+                                <p><strong>Téléphone :</strong> <span>${ticket.phone}</span></p>
+                                <p><strong>Total :</strong> <span>${ticket.total} DA</span></p>
+                            </div>
+                            <div class="ticket-actions">
+                                <button class="action-btn view-btn" onclick="viewTicket(${index})">
+                                    <i class="fas fa-eye"></i> Voir
+                                </button>
+                                <button class="action-btn download-btn" onclick="downloadTicket(${index})">
+                                    <i class="fas fa-download"></i> Télécharger
+                                </button>
+                            </div>
+                        </div>
+                    `;
+                    
+                    container.appendChild(ticketCard);
+                });
+            }
+            
+            // Initialiser l'affichage
+            displayTickets();
+            
+            // Gestion des filtres
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    displayTickets(this.dataset.filter);
+                });
+            });
+        });
+        
+        // Fonction pour voir un ticket
+        function viewTicket(index) {
+            const ticketsHistory = JSON.parse(localStorage.getItem('ticketsHistory')) || [];
+            const ticket = ticketsHistory[index];
+            
+            // Créer l'objet panier avec la liste des articles (name, price, quantity)
+            const panier = {
+        
+                    name: ticket.nom,
+                    price: ticket.prix,
+                    quantity: ticket.quantity ,
+
+                date: ticket.visitDate,
+                total: ticket.total,
+                ticketId: ticket.id || Date.now()
+            };
+
+            // Stocker les données nécessaires
+            localStorage.setItem('panier', JSON.stringify(panier));
+            localStorage.setItem('ticketInfo', JSON.stringify({
+                nom: ticket.name,
+                telephone: ticket.phone,
+                email: ticket.email,
+                dateVisite: ticket.visitDate,
+                total: ticket.total,
+                statusPaiement: ticket.status === 'cancelled' ? 'Annulé' : 'Payé'
+            }));
+            localStorage.setItem('parkTitle', ticket.parkName);
+            
+            // Ouvrir la page du ticket
+            window.open('ticket.html', '_blank');
+        }
+        
+        // Fonction pour télécharger un ticket
+        function downloadTicket(index) {
+            viewTicket(index);
+            setTimeout(() => {
+                alert("Ouvrez le ticket et utilisez le bouton 'Enregistrer' pour le télécharger.");
+            }, 500);
+        }
+    </script>
+    
+</body>
+</html>

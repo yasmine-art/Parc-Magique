@@ -1,0 +1,1090 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎢 Parcs d'Attractions d'Oran 🎡</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/solid/star.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+         body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background-color: white;
+        }
+
+        header {
+            background: linear-gradient(135deg, #f4e7d3, #d2b48c); /* Dégradé de beige */
+            
+            color: #333;
+            padding: 2rem 0;
+            /*text-align: left;*/
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            height: 10%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 20px; /* Ajout d'un padding à gauche pour l'espacement */
+        }
+        header nav {
+            flex-grow: 1; /* Allow nav to take available space */
+            display: flex;
+            justify-content: center; /* Center the links */
+            margin-top: 10px; /* Move the links down */
+}
+        header nav ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px; /* Espacement entre les liens */
+
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin: 0 10px;
+            opacity: 0; /* Start hidden for animation */
+            animation: fadeIn 0.5s forwards; /* Animation for links */
+            animation-delay: calc(0.1s * var(--i)); /* Staggered animation */
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1em;
+            font-weight: bold;
+            position: relative;
+            /*overflow: hidden;*/
+            transition: color 0.3s ease, transform 0.3s ease;
+            outline: none; /* Supprime le contour au clic */
+        }
+        
+header nav ul li a:hover {
+    color: rgb(141, 123, 123); /* Changement de couleur au survol */
+    transform: translateY(-2px); /* Légère élévation au survol */
+}
+header nav ul li a:focus {
+    text-decoration: none; /* Supprime le soulignement au focus */
+}
+
+
+        header nav ul li a::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            /*background-color: #f2c14e; /* Couleur de l'effet de survol */
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+        }
+
+        header nav ul li a:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        header nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            /*background-color: #f2c14e; /* Couleur de l'effet de survol */
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            transition: transform 0.3s ease-out;
+}
+
+header nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+header nav ul li a:hover::before {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+        header nav ul li a i {
+    margin-right: 8px; /* Espace entre l'icône et le texte */
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+header nav ul li a:hover i {
+    transform: rotate(15deg); /* Animation au survol */
+}
+        @keyframes fadeIn {
+            to {
+                opacity: 1; /* Fade in effect */
+            }
+        }
+
+        header h1 {
+            margin: 0;
+            color: #333;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            /*padding-right: 20px; /* Space between title and nav */
+            
+        }
+
+        #features {
+            padding: 30px 15px;
+            background-color: linear-gradient(135deg, #f4e7d3, #d2b48c); /* Dégradé de beige */
+            text-align: center;
+        }
+
+        #features h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        #features p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .feature {
+            display: inline-block;
+            width: 28%;
+            margin: 10px;
+            padding: 15px;
+            background: linear-gradient(135deg, #f4e7d3, #d2b48c); /* Dégradé de beige */
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative; /* Nécessaire pour positionner le pseudo-élément */
+            overflow: hidden; /* Cache le débordement du pseudo-élément */
+        }
+        
+        
+.feature::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Effet de lumière */
+    transition: left 0.5s ease-in-out; /* Animation de la lumière */
+    pointer-events: none; /* Permet de cliquer à travers le pseudo-élément */
+}
+.feature:hover::after {
+    left: 100%; /* Déplacement de la lumière */
+}
+        .feature:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée */
+            background: linear-gradient(135deg, #d2b48c, #f4e7d3); /* Dégradé inversé au survol */
+        }
+
+        .feature i {
+            font-size: 2.5rem;
+            color: #f68f82;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .feature p {
+            font-size: 1rem;
+            color: #666;
+        }
+        
+        #parks {
+            padding: 30px 15px;
+            background: linear-gradient(135deg, #f4e7d3, #d2b48c); /* Dégradé de beige */
+            text-align: center;
+        }
+
+        #parks h1 {
+            color: #333;
+        }
+
+        #parks ul {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #parks ul li {
+            text-align: center;
+            background:  linear-gradient(135deg, #f4e7d3, #d2b48c); /* Dégradé de beige */
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            perspective: 1000px;
+            position: relative; /* Nécessaire pour positionner le pseudo-élément */
+        }
+        #parks ul li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Effet de lumière */
+    transition: left 0.5s ease-in-out; /* Animation de la lumière */
+    pointer-events: none; /* Permet de cliquer à travers le pseudo-élément */
+}
+#parks ul li:hover::after {
+    left: 100%; /* Déplacement de la lumière */
+}
+        #parks ul li:hover {
+            transform: rotateY(15deg) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            background: linear-gradient(135deg, #d2b48c, #f4e7d3); /* Dégradé inversé au survol */
+        }
+
+        #parks ul li img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        #parks ul li:hover img {
+            transform: scale(1.1);
+        }
+
+        #parks ul li a {
+            display: block;
+            text-decoration: none;
+            padding: 10px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        #parks ul li a:hover {
+            color: #007BFF;
+        }
+
+        #about {
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #f4e7d3, #d2b48c); /* Dégradé de beige */
+            text-align: center;
+        }
+
+        #about h2 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        #about p {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .about-content {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .about-item {
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            background: linear-gradient(135deg, #f4e7d3, #d2b48c); /* Dégradé de beige */
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+            position: relative; /* Nécessaire pour positionner le pseudo-élément */
+            overflow: hidden; /* Cache le débordement du pseudo-élément */
+        }
+
+.about-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Effet de lumière */
+    transition: left 0.5s ease-in-out; /* Animation de la lumière */
+    pointer-events: none; /* Permet de cliquer à travers le pseudo-élément */
+}
+
+.about-item:hover::after {
+    left: 100%; /* Déplacement de la lumière */
+}
+
+
+        .about-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .about-item:hover {
+            background: linear-gradient(135deg, #d2b48c, #f4e7d3); /* Dégradé inversé au survol */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .about-item i {
+            font-size: 2.5rem;
+            color: #f68f82;
+            margin-bottom: 10px;
+        }
+
+        .about-item h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .about-item p {
+            font-size: 1rem;
+            color: #666;
+        }
+
+        footer {
+            background: linear-gradient(135deg, #f4e7d3, #d2b48c); /* Dégradé de beige */
+            color: #333;
+            text-align: center;
+            padding: 1rem 0;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        footer a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        footer a:hover {
+            color: #007BFF;
+        }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #e0e0e0, #bdbdbd); /* Dégradé gris */
+            color: #333;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+#back-to-top:hover {
+            background:  linear-gradient(135deg, #bdbdbd, #e0e0e0); /* Dégradé inversé au survol */
+            }
+
+.auth-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+.auth-button {
+    background: linear-gradient(135deg, #f4e7d3, #d2b48c); /* Dégradé de beige */
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem; 
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.auth-button i {
+font-size: 1rem; /* Taille réduite */
+}
+.auth-button::after {
+content: "";
+position: absolute;
+top: 0;
+left: -100%;
+width: 100%;
+height: 100%;
+background: rgba(255, 255, 255, 0.3);
+transition: left 0.3s ease-in-out;
+}
+
+.auth-button:hover::after {
+left: 100%;
+}
+
+.auth-button:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, #d2b48c, #f4e7d3); /* Dégradé inversé au survol */
+}
+
+.modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1001;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            animation: modalFadeIn 0.5s ease forwards;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .modal-content p {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            height: 200px;
+            border: 0;
+            margin: 1rem 0;
+        }
+
+        .modal-content .visit-button {
+            background: linear-gradient(135deg, #e0e0e0, #bdbdbd); /* Dégradé gris */
+            border: none;
+            color: #333;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            margin-top: 1rem;
+        }
+
+        .modal-content .visit-button:hover {
+            background: linear-gradient(135deg, #bdbdbd, #e0e0e0); /* Dégradé inversé au survol */
+            transform: scale(1.1);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        #welcome {
+            height: 100vh;
+            background: linear-gradient(135deg, #f4e7d3, #d2b48c); /* Dégradé de beige */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            position: relative;
+        }
+
+        #welcome .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+            padding: 0 20px;
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        .welcome-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .text-content {
+            max-width: 500px;
+            text-align: left;
+            color: #333;
+        }
+
+        #welcome h2 {
+            font-size: 2.5rem;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            animation: fadeInRight 5s infinite;
+        }
+
+        @keyframes fadeInRight {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        #welcome p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+
+        .category-buttons {
+            text-align: center;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .category-button {
+            background: linear-gradient(135deg, #f4e7d3, #d2b48c); /* Dégradé de beige */
+            color: #333;
+            border: none;
+            padding: 15px 25px;
+            margin: 0 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .category-button:hover {
+            background: linear-gradient(135deg, #d2b48c, #f4e7d3); /* Dégradé inversé au survol */
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .category-button i {
+            font-size: 1.2rem;
+        }
+.category-button::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: top 0.3s ease;
+}
+
+.category-button:hover::after {
+    top: 0; /* Fait glisser l'effet de lumière vers le haut */
+}
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-10px); /* Légère élévation */
+    }
+    60% {
+        transform: translateY(-5px); /* Légère élévation */
+    }
+}
+
+.bounce {
+    animation: bounce 0.3s; /* Applique l'animation de rebond */
+}
+
+        .parks-container {
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .parks-list {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            transition: transform 0.5s ease;
+            opacity: 1;
+            transform: translateX(100%);
+        }
+
+        .parks-list.active {
+            display: flex;
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .parks-list ul li {
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .parks-list ul li:hover {
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        }
+
+        .arrow {
+            font-size: 2rem;
+            cursor: pointer;
+            color: #f68f82;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+
+        .arrow:hover {
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .arrow-left {
+            left: 10px;
+        }
+
+        .arrow-right {
+            right: 10px;
+        }
+
+        @keyframes slideLeft {
+            0% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+        }
+
+        @keyframes slideRight {
+            0% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+        }
+
+        .parks-list.slide-left {
+            transform: translateX(-100%);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            animation: slideLeft 0.5s ease-in-out forwards;
+        }
+
+        .parks-list.slide-right {
+            transform: translateX(100%);
+            opacity: 0;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            animation: slideRight 0.5s ease-in-out forwards;
+        }
+</style>
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-star"></i> Parc Magique </h1>
+        <nav>
+            <ul>
+                <li style="--i: 1;"><a href="#features"><i class="fas fa-map-marked-alt"></i>Fonctionnalités</a></li>
+                <li style="--i: 2;"><a href="#parks"><i class="fas fa-ticket-alt"></i>parks</a></li>
+                <li style="--i: 3;"><a href="#about"><i class="fas fa-info-circle"></i>À propos</a></li>
+                
+            </ul>
+        </nav>
+        <div class="auth-buttons">
+            <button class="auth-button" onclick="window.location.href='login.html'"><i class="fas fa-sign-in-alt"></i> Se connecter</button>
+        </div> 
+    </header>   
+        <section id="welcome">
+            <div class="content">
+                <img src="images/parc.jpg" alt="Image d'accueil" class="welcome-image">
+                <div class="text-content">
+                    <h2>Bienvenue sur notre guide des loisirs à Oran</h2>
+                    <p>Découvrez les meilleurs endroits pour vous divertir : parcs d'attractions, cinémas et aquaparcs !</p>
+                </div>
+            </div>
+        </section>
+        <section id="features">
+            <h2>Nos Fonctionnalités</h2>
+            <p>Découvrez les fonctionnalités essentielles pour profiter pleinement de nos parcs et attractions.</p>
+        
+            <div class="feature">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Carte interactive</h3>
+                <p>Explorez facilement les lieux d'intérêt à Oran.</p>
+            </div>
+        
+            <div class="feature">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Horaires</h3>
+                <p>Consultez les horaires et événements.</p>
+            </div>
+        
+            <div class="feature">
+                <i class="fas fa-info-circle"></i>
+                <h3>Infos</h3>
+                <p>Des détails sur les attractions et services.</p>
+            </div>
+        </section> 
+        
+        </section>       
+        <section id="parks">
+            <div class="category-buttons">
+                <button class="category-button" data-category="all"><i class="fas fa-star"></i>Tous</button>
+                <button class="category-button" data-category="manege"><i class="fas fa-carousel"></i>Manèges</button>
+                <button class="category-button" data-category="aquaparc"> <i class="fas fa-swimmer"></i>Aquaparcs</button>
+            </div>
+            
+        <div class="parks-container">
+          <div class="parks-list active" id="all-parks">
+            <ul>
+                <li class="manege" data-description="est un espace de divertissement populaire situé dans la région d'El Hamri a Oran, en Algérie. Ouvert tout les jours(apart le dimanche) de 14h a 20h, le jeudi a samedi: de 14h a 21h, apart le Dimanche : Il est particulièrement apprécié des familles et des enfants pour son ambiance joyeuse et ses attractions variées. Il offre des services comme : des petites magasins de bonbons et Popcorn, Parking, sanitaires, espace vert pour le confort" data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="elhamri.jpg" alt="Manège Elhamri" title="manege elhamri">
+                    <a href="elhamri.html"><i class="fas fa-carousel"></i>  Manège Elhamri</a>
+                </li>
+                <li class="manege" data-description="Grand Oran est un lieu de divertissement d’attractions qui promet des moments inoubliables pour toute la famille. Avec une variété d'attractions, il offre une expérience rafraîchissante et amusante et aussi des services comme: Restaurant, cafeteria, Parking, Sanitaires, et des magasins de différents types. Ouvert 7j/7 de 14h a 21h." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="azGrandOran.jpg" alt="AZ Grand Oran" title="az Grandoran">
+                    <a href="azgrandoran.html"><i class="fas fa-wheelchair"></i> AZ Grand Oran</a>
+                </li>
+                <li class="manege" data-description="est une destination idéale pour les familles à la recherche de loisirs, d’activités ludiques, et de moments de détente. Situé a Belgaid Oran. Les horaires d’ouvertures sont comme suit : Dimanche: fermé. Lundi-Mercredi: 14:00 - 20:00. Jeudi: 14:00 - 21:00. Vendredi: 15:00 - 21:00. Samedi: 10:00 - 20:00. Les moyens de transport : G1,G3." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="coolPark.jpg" alt="Cool Park" title="cool park">
+                    <a href="coolpark.html"><i class="fas fa-crown"></i> Cool Park</a>
+                </li>
+                <li class="manege" data-description="est un parc d'attractions dédié aux enfants de 1 a 16ans, situé à Oran Hai Zitoune en face du pont El Barki juste a coté de la salle des fetes MALAK. Ouvert 7j/7 de 14h a 21h. Il offre une variété d'activités ludiques et éducatives et un éspace pour les anniversaires, cafeteria et restaurant, magasin de bonbons, Parking, sanitaires." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="kiddyGarden.jpg" alt="Kiddy Garden" title="kiddyGarden">
+                    <a href="kiddygarden.html"><i class="fas fa-baby"></i>  Kiddy Garden</a>
+                </li>
+               
+                <li class="manege" data-description="est une salle de jeux située au sein du Centre Commercial Sidi Yahia, sur le Boulevard des Lions, Bir El Djir, Oran. Cet espace propose une variété d'activités ludiques pour les enfants, notamment des jeux d'arcade, des expériences de réalité virtuelle, des murs d'escalade, des trampolines et bien plus encore. Les installations sont conçues pour offrir un environnement sûr et amusant aux enfants de différents âges. Il offre des services comme : Cafeteria, Espace pour anniversaire, Parking, Sanitaires. Ouvert tous les jours de 11h a 23h30 apart le Vendredi de 15h a 23h30." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="KhaledSpaceKids.jpg" alt="KhaledSpaceKids" title="KhaledSpaceKids">
+                    <a href="spacekids.html"><i class="fas fa-gamepad"></i> Khaled space kids</a>
+                </li>
+               
+            </ul>
+            
+           
+           
+            <ul >
+                <li class="aquaparc" data-description="situé à la madrague Ain Turk près d'Oran, est un parc aquatique qui offre une expérience de loisirs aquatiques pour toute la famille. Ouvert 7j/7 de 10h a 19h30 Avec ses attractions variées, ses services de restauration et ses installations modernes, il est devenu un lieu de divertissement populaire." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="boukaa.jpg" alt="Boukaa Beach" title="Boukaa beach">
+                    <a href="boukaa.html"><i class="fas fa-water"></i> Boukaa Beach</a>
+                </li>
+                <li class="aquaparc" data-description="est un parc aquatique moderne situé à Oran, en Algérie.Ouvert de 10h a 18h30 Samedi Dimanche Mardi Mercredi: Des jours pour Femmes et Enfants(garçons moin de 1m20) , Lundi Jeudi Vendredi : Des jours Family. Il offre une variété d'attractions aquatiques et de services pour garantir une journée de divertissement en famille ou entre amis." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="rodina.jpg" alt="Aquaparc Rodina" title="Aquaparc rodina">
+                    <a href="rodina.html"><i class="fas fa-water"></i> Aquaparc Rodina</a>
+                </li>
+                <li class="aquaparc" data-description="est un parc aquatique populaire situé à Oran, en Algérie. Il offre une gamme d'attractions aquatiques et de services pour garantir une expérience agréable et divertissante pour les visiteurs de tous âges. Ouvert 7j/7 de 10h à 19h. Offre des services comme restaurant.." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="kristel.jpg" alt="Aquaparc Krichtel" title="Aquapark kristel">
+                    <a href="kristel.html"><i class="fas fa-swimmer"></i> Aquaparc Krichtel</a>
+                </li>
+                <li class="aquaparc" data-description="est un parc aquatique populaire situé à AZ HOTEL GRAND ORAN , en Algérie. Il offre une gamme d'attractions aquatiques et de services pour garantir une expérience agréable et divertissante pour les visiteurs de tous âges." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="aquaAz.jpg" alt="Aquaparc AZ" title="Aquapark AZ">
+                    <a href="aquapark_az.html"><i class="fas fa-water"></i> Aquaparc AZ</a>
+                </li>  
+            </ul>  
+          </div>
+          <div class="parks-list" id="manege-parks">
+            <ul>
+                <li class="manege" data-description="est un espace de divertissement populaire situé dans la région d'El Hamri a Oran, en Algérie. Ouvert tout les jours(apart le dimanche) de 14h a 20h, le jeudi a samedi: de 14h a 21h, apart le Dimanche : Il est particulièrement apprécié des familles et des enfants pour son ambiance joyeuse et ses attractions variées. Il offre des services comme : des petites magasins de bonbons et Popcorn, Parking, sanitaires, espace vert pour le confort" data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="elhamri.jpg" alt="Manège Elhamri" title="manege elhamri">
+                    <a href="elhamri.html"><i class="fas fa-carousel"></i>  Manège Elhamri</a>
+                </li>
+                <li class="manege" data-description="Grand Oran est un lieu de divertissement d’attractions qui promet des moments inoubliables pour toute la famille. Avec une variété d'attractions, il offre une expérience rafraîchissante et amusante et aussi des services comme: Restaurant, cafeteria, Parking, Sanitaires, et des magasins de différents types. Ouvert 7j/7 de 14h a 21h." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="azGrandOran.jpg" alt="AZ Grand Oran" title="az Grandoran">
+                    <a href="azgrandoran.html"><i class="fas fa-wheelchair"></i> AZ Grand Oran</a>
+                </li>
+                <li class="manege" data-description="est une destination idéale pour les familles à la recherche de loisirs, d’activités ludiques, et de moments de détente. Situé a Belgaid Oran. Les horaires d’ouvertures sont comme suit : Dimanche: fermé. Lundi-Mercredi: 14:00 - 20:00. Jeudi: 14:00 - 21:00. Vendredi: 15:00 - 21:00. Samedi: 10:00 - 20:00. Les moyens de transport : G1,G3." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="coolPark.jpg" alt="Cool Park" title="cool park">
+                    <a href="coolpark.html"><i class="fas fa-crown"></i> Cool Park</a>
+                </li>
+                <li class="manege" data-description="est un parc d'attractions dédié aux enfants de 1 a 16ans, situé à Oran Hai Zitoune en face du pont El Barki juste a coté de la salle des fetes MALAK. Ouvert 7j/7 de 14h a 21h. Il offre une variété d'activités ludiques et éducatives et un éspace pour les anniversaires, cafeteria et restaurant, magasin de bonbons, Parking, sanitaires." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="kiddyGarden.jpg" alt="Kiddy Garden" title="kiddyGarden">
+                    <a href="kiddygarden.html"><i class="fas fa-baby"></i>  Kiddy Garden</a>
+                </li>
+               
+                <li class="manege" data-description="est une salle de jeux située au sein du Centre Commercial Sidi Yahia, sur le Boulevard des Lions, Bir El Djir, Oran. Cet espace propose une variété d'activités ludiques pour les enfants, notamment des jeux d'arcade, des expériences de réalité virtuelle, des murs d'escalade, des trampolines et bien plus encore. Les installations sont conçues pour offrir un environnement sûr et amusant aux enfants de différents âges. Il offre des services comme : Cafeteria, Espace pour anniversaire, Parking, Sanitaires. Ouvert tous les jours de 11h a 23h30 apart le Vendredi de 15h a 23h30." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="KhaledSpaceKids.jpg" alt="KhaledSpaceKids" title="KhaledSpaceKids">
+                    <a href="spacekids.html"><i class="fas fa-gamepad"></i> Khaled space kids</a>
+                </li>  
+            </ul>
+          </div> 
+          <div class="parks-list" id="aquaparc-parks">
+                 
+            <ul >
+                <li class="aquaparc" data-description="situé à la madrague Ain Turk près d'Oran, est un parc aquatique qui offre une expérience de loisirs aquatiques pour toute la famille. Ouvert 7j/7 de 10h a 19h30 Avec ses attractions variées, ses services de restauration et ses installations modernes, il est devenu un lieu de divertissement populaire." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="boukaa.jpg" alt="Boukaa Beach" title="Boukaa beach">
+                    <a href="boukaa.html"><i class="fas fa-water"></i> Boukaa Beach</a>
+                </li>
+                <li class="aquaparc" data-description="est un parc aquatique moderne situé à Oran, en Algérie.Ouvert de 10h a 18h30 Samedi Dimanche Mardi Mercredi: Des jours pour Femmes et Enfants(garçons moin de 1m20) , Lundi Jeudi Vendredi : Des jours Family. Il offre une variété d'attractions aquatiques et de services pour garantir une journée de divertissement en famille ou entre amis." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="rodina.jpg" alt="Aquaparc Rodina" title="Aquaparc rodina">
+                    <a href="rodina.html"><i class="fas fa-water"></i> Aquaparc Rodina</a>
+                </li>
+                <li class="aquaparc" data-description="est un parc aquatique populaire situé à Oran, en Algérie. Il offre une gamme d'attractions aquatiques et de services pour garantir une expérience agréable et divertissante pour les visiteurs de tous âges. Ouvert 7j/7 de 10h à 19h. Offre des services comme restaurant.." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="kristel.jpg" alt="Aquaparc Krichtel" title="Aquapark kristel">
+                    <a href="kristel.html"><i class="fas fa-swimmer"></i> Aquaparc Krichtel</a>
+                </li>
+                <li class="aquaparc" data-description="est un parc aquatique populaire situé à AZ HOTEL GRAND ORAN , en Algérie. Il offre une gamme d'attractions aquatiques et de services pour garantir une expérience agréable et divertissante pour les visiteurs de tous âges." data-location="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509123!2d144.9537353153163!3d-37.81627997975157!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad642af0f11f1b3%3A0x5045675218ceed30!2sMelbourne%20Museum!5e0!3m2!1sen!2sau!4v1616161616161!5m2!1sen!2sau">
+                    <img src="aquaAz.jpg" alt="Aquaparc AZ" title="Aquapark AZ">
+                    <a href="aquapark_az.html"><i class="fas fa-water"></i> Aquaparc AZ</a>
+                </li>  
+            </ul>
+          </div>
+      
+        </div>
+        </section>
+        <section id="about">
+            <h2>À propos de nous</h2>
+            <p>Nous sommes une équipe passionnée dédiée à offrir des expériences exceptionnelles à nos visiteurs. Découvrez nos services et ce qui nous rend uniques.</p>
+        
+            <div class="about-content">
+                <div class="about-item">
+                    <i class="fas fa-users"></i>
+                    <h3>Notre équipe</h3>
+                    <p>Une équipe dynamique et expérimentée pour vous offrir un service de qualité.</p>
+                </div>
+        
+                <div class="about-item">
+                    <i class="fas fa-bullhorn"></i>
+                    <h3>Nos objectifs</h3>
+                    <p>Fournir une expérience inoubliable et améliorer continuellement nos services.</p>
+                </div>
+        
+                <div class="about-item">
+                    <i class="fas fa-globe"></i>
+                    <h3>Notre vision</h3>
+                    <p>Devenir la référence en matière de parcs et d'attractions pour tous les publics.</p>
+                </div>
+             
+            </div>
+        </section>
+        
+    <button id="back-to-top" title="Retour en haut"><i class="fas fa-arrow-up"></i> </button>
+    <footer>
+        <p id="copyright">&copy; 2025 Parc Magic. Tous droits réservés. </p>
+    </footer>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Titre du parc</h2>
+            <p id="modal-description">Description du parc.</p>
+            <iframe id="modal-map" src="" width="100%" height="200" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <button class="visit-button" id="visit-button">Visiter</button>
+        </div>
+    </div>
+   
+    <script>
+ // Liste des catégories dans l'ordre
+const categories = ['all', 'manege', 'aquaparc', 'cinema'];
+let currentIndex = 0;
+
+// Fonction pour glisser les parcs
+function slideParks(direction) {
+    // Masquer la liste actuelle avec une animation de glissement
+    const activeList = document.querySelector('.parks-list.active');
+    if (activeList) {
+        activeList.classList.remove('active');
+        if (direction === 'left') {
+            activeList.classList.add('slide-left'); // Glissement vers la gauche
+        } else if (direction === 'right') {
+            activeList.classList.add('slide-right'); // Glissement vers la droite
+        }
+    }
+
+    // Mettre à jour l'index en fonction de la direction
+    if (direction === 'left') {
+        currentIndex = (currentIndex - 1 + categories.length) % categories.length;
+    } else if (direction === 'right') {
+        currentIndex = (currentIndex + 1) % categories.length;
+    }
+
+    // Afficher la nouvelle liste avec une animation
+    const newCategory = categories[currentIndex];
+    const newList = document.getElementById(newCategory + '-parks');
+    if (newList) {
+        newList.classList.add('active');
+        newList.classList.remove('slide-left', 'slide-right');
+        newList.offsetHeight; // Trigger reflow to restart the animation
+    }
+}
+
+// Fonction pour filtrer les parcs par catégorie
+function filterParks(category) {
+    const parksLists = document.querySelectorAll('.parks-list');
+    parksLists.forEach(list => {
+        list.classList.remove('active', 'slide-left', 'slide-right'); // Masquer toutes les listes
+    });
+
+    const activeList = document.getElementById(category + '-parks');
+    if (activeList) {
+        activeList.classList.add('active'); // Afficher la catégorie sélectionnée
+    }
+
+    // Mettre à jour l'index actuel
+    currentIndex = categories.indexOf(category);
+}
+
+// Gestion des boutons de catégorie
+const categoryButtons = document.querySelectorAll('.category-button');
+categoryButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const category = button.getAttribute('data-category');
+        filterParks(category);
+    });
+});
+
+// Initialiser en affichant tous les parcs
+filterParks('all');
+
+// Gestion du bouton "Retour en haut"
+const backToTopButton = document.getElementById('back-to-top');
+
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 200) {
+        backToTopButton.style.display = 'flex'; // Afficher le bouton
+    } else {
+        backToTopButton.style.display = 'none'; // Cacher le bouton
+    }
+});
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Gestion de la modale
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modal-title');
+const modalDescription = document.getElementById('modal-description');
+const modalMap = document.getElementById('modal-map');
+const visitButton = document.getElementById('visit-button');
+
+document.querySelectorAll('#parks ul li').forEach((card) => {
+    card.addEventListener('click', () => {
+        const title = card.querySelector('a').textContent;
+        const description = card.getAttribute('data-description');
+        const location = card.getAttribute('data-location'); // Récupère l'URL de la carte
+
+        modalTitle.textContent = title;
+        modalDescription.textContent = description;
+        modalMap.src = location; // Met à jour l'iframe avec la carte
+        modal.style.display = 'flex'; // Affiche le modal
+    });
+});
+
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none'; // Ferme le modal si on clique en dehors
+    }
+});
+
+visitButton.addEventListener('click', () => {
+    const title = modalTitle.textContent;
+    alert(`Redirection vers ${title}`);
+});
+
+// Fonction d'animation au défilement pour toutes les sections
+document.addEventListener("DOMContentLoaded", function () {
+    const sections = document.querySelectorAll('section');
+    const items = document.querySelectorAll('.feature, .parks, .about-item');
+
+    // Observer pour détecter l'apparition des sections à l'écran
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');  // Ajouter la classe visible quand l'élément est à l'écran
+                observer.unobserve(entry.target);  // Arrêter l'observation une fois l'élément visible
+            }
+        });
+    }, { threshold: 0.3 });  // L'élément sera observé lorsqu'il est à 30% visible
+
+    // Observer toutes les sections
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    // Observer les éléments à l'intérieur des sections
+    items.forEach(item => {
+        observer.observe(item);
+    });
+});
+
+
+const categoryButtons1 = document.querySelectorAll('.category-button');
+categoryButtons1.forEach(button => {
+    button.addEventListener('click', () => {
+        button.classList.add('bounce'); // Ajoute la classe d'animation
+
+        // Supprime la classe après l'animation
+        setTimeout(() => {
+            button.classList.remove('bounce');
+        }, 300); // Durée de l'animation (300ms)
+    });
+});
+
+    </script>
+</body>
+</html>

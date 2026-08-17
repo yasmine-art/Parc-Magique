@@ -1,0 +1,1413 @@
+
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ECF0F1; /* Couleur claire */
+    color: #333;
+}
+
+header {
+    background: #b36572;
+    color: #333;
+    padding: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 10%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+header nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px; /* Ajout d'un espace entre le bouton et les liens */
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+    animation: fadeIn 0.5s forwards;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+/* Réduire la taille des liens */
+header nav ul li a {
+    text-decoration: none;
+    color: mistyrose;
+    font-size: 20; /* Taille réduite */
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+    outline: none;
+}
+
+header nav ul li a:hover {
+    color: rgb(236, 196, 192);
+    transform: translateY(-2px);
+}
+
+header nav ul li a:focus {
+    text-decoration: none;
+}
+
+header nav ul li a::before,
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+header nav ul li a:hover::before,
+header nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+header nav ul li a i {
+    margin-right: 8px;
+    font-size: 20px; /* Taille réduite */
+    transition: transform 0.3s ease;
+}
+
+header nav ul li a:hover i {
+    transform: rotate(15deg);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+h1 {
+    border: none;
+    margin: 0;
+    color: mistyrose;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.auth-button {
+    background: linear-gradient(135deg, #b36572, rgb(242, 192, 175));
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-button i {
+    font-size: 1rem;
+}
+
+.auth-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: left 0.3s ease-in-out;
+}
+
+.auth-button:hover::after {
+    left: 100%;
+}
+
+.auth-button:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, rgb(242, 192, 175), #b36572);
+}
+/* Mode tablette moyenne (600px à 750px) - Comme le mobile */
+@media (min-width: 600px) and (max-width: 750px) {
+    header {
+        padding: 0.8rem;
+        flex-wrap: wrap;
+    }
+    
+    /* Menu hamburger */
+    #hamburger-menu {
+        display: block;
+        order: 1;
+        margin-right: 0.5rem;
+        font-size: 1.8rem;
+    }
+    
+    /* Titre centré */
+    header h1 {
+        order: 2;
+        flex: 1;
+        text-align: center;
+        margin: 0 0.5rem;
+        font-size: 1.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Bouton de connexion réduit */
+    .auth-buttons {
+        order: 3;
+        position: static;
+        transform: none;
+    }
+    
+    .auth-button {
+        padding: 0.6rem;
+        font-size: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+    }
+    
+    .auth-button i {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+    
+    /* Navigation cachée par défaut */
+    header nav {
+        display: none;
+        order: 4;
+        width: 100%;
+        margin-top: 1rem;
+        background: #b36572;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    /* Menu visible */
+    header nav.mobile-visible {
+        display: block;
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    header nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 0;
+    }
+    
+    header nav ul li {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    }
+    
+    header nav ul li a {
+        display: block;
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    header nav ul li a i {
+        font-size: 1.3rem;
+    }
+}
+
+/* Ajustement spécifique pour la plage 750px-992px */
+@media (min-width: 751px) and (max-width: 992px) {
+    /* Conserver le style tablette existant */
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Mode mobile */
+@media (max-width: 768px) {
+    header {
+        padding:0.5rem 1rem;
+        flex-wrap: wrap;
+    }
+    
+    header h1 {
+        position: static;
+        order: 2;
+        transform: none;
+        flex: 1;
+        text-align: center;
+
+    }
+    
+    /* Menu hamburger */
+    .menu-toggle {
+        display: block;
+        order: 1;
+        background: none;
+        border: none;
+        color: mistyrose;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        
+    }
+    
+    /* Navigation principale cachée en mobile */
+    header nav {
+        display: none;
+        order: 4;
+        width: 100%;
+        margin-top: 1rem;
+        
+    }
+    
+    /* Menu mobile visible */
+    header nav.mobile-visible {
+        display: block;
+        animation: fadeIn 0.3s ease-out;
+    }
+    
+    header nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .auth-buttons {
+        order: 3;
+        margin-left: 0;
+        top: 1px; /* Remonter les boutons d'authentification */
+        right: 0;
+    }
+    .auth-button{
+        padding: 0.6rem;
+        font-size: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+h1,h2 {
+    border: none; /* Suppression de la bordure */
+    margin: 0; /* Suppression de la marge */
+}
+h2,h3{
+    color: #b36572;
+}
+
+/* Grille pour les jeux */
+.grid-container {
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+}
+/*categorie parcs*/
+.category-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.category-button {
+    background:linear-gradient(#b36572,#e5c8cd); /* Dégradé de beige */
+    color: #333;
+    border-radius: 50px;
+    padding: 15px 25px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.category-button:hover {
+    background: linear-gradient(135deg, #e5c8cd, #b36572); /* Dégradé inversé au survol */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.category-button i {
+    font-size: 1.2rem;
+}
+.category-button::after {
+content: '';
+position: absolute;
+top: 100%;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(255, 255, 255, 0.3);
+transition: top 0.3s ease;
+}
+
+.category-button:hover::after {
+top: 0; /* Fait glisser l'effet de lumière vers le haut */
+}
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% {
+transform: translateY(0);
+}
+40% {
+transform: translateY(-10px); /* Légère élévation */
+}
+60% {
+transform: translateY(-5px); /* Légère élévation */
+}
+}
+
+.bounce {
+animation: bounce 0.3s; /* Applique l'animation de rebond */
+}
+hr{
+    border: none; /* Supprime le style par défaut */
+    height: 5px; /* Définit l'épaisseur */
+    width: 50%;
+    background-color: #b36572;
+    margin: 20px auto; /* Espacement au-dessus et en dessous */
+    border-radius: 3px; /* Arrondit légèrement les bords */
+}
+/* Conteneur des éléments du carrousel */
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
+}
+
+/* Style des éléments du carrousel */
+.carousel-item {
+    flex: 0 0 33.33%; /* Affiche 3 éléments à la fois */
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: center;
+}
+.carousel-item video {
+    width: 100%;
+    height: 200px; /* Hauteur fixe pour toutes les images */
+    object-fit: cover; /* Pour que les images conservent leurs proportions */
+    border-radius: 10px; /* Optionnel : pour des coins arrondis */
+    cursor: pointer; /* Change le curseur en pointeur */
+}
+.game {
+    background: white;
+    border-radius: 8px;
+    overflow:hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+   
+}
+.game:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+#games h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+#games{
+ background-color: mistyrose;
+}
+.game img ,.game video{
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+}
+.game h3 {
+    font-size: 1rem;
+    margin: 10px;
+    color:#b36572;
+}
+.game p {
+    font-size: 0.9rem;
+    color: #111;
+    margin: 0 10px 10px;
+}
+
+section {
+    
+    background: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;  
+}
+section h2{
+    text-align: center;
+}
+footer {
+    background: #b36572;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+button {
+    background:#b36572;
+    border: none;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background:#d0a3af;
+    transform: scale(1.05);
+}
+#to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #b36572, #d0a3af);
+    color: white;
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background 0.3s, transform 0.3s;
+}
+#to-top:hover {
+    background: linear-gradient(135deg, #d0a3af, #b36572);
+    transform: scale(1.1);
+}
+
+footer .social-media a {
+    display: inline-block;
+    margin: 0 10px;
+    color: white;
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: background 0.4s, color 0.4s, transform 0.2s;
+    padding: 10px;
+    border-radius: 50%;
+    position: relative;
+}
+footer .social-media a:hover {
+    color: white;
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+    transform: scale(1.2); /* Agrandir légèrement l'icône */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Ajouter une ombre pour l'effet visuel */
+}
+footer .social-media a:hover::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff6a00, #ee0979);
+    z-index: -1;
+    animation: pulse 1.5s infinite;
+}
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 0.7;
+    }
+}
+/* Style de la modal */
+.modal {
+    display: none; /* Cacher par défaut */
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Contenu de la modal */
+.modal-content {
+    position: relative;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    max-width: 900px;
+    height: 80%;
+    max-height: 90%;
+}
+
+/* Image et vidéo dans la modal */
+.modal-content img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Bouton pour fermer la modal */
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+.close:hover {
+    color: #ff6a00;
+}
+.click-here {
+    font-size: 0.9rem;
+    color: #555;
+    
+    margin-top: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+html {
+    scroll-behavior: smooth;
+}
+/* Section Welcome */
+#welcome {
+    height: 100vh; /* Toute la hauteur de la page */
+    background-color: mistyrose; /* Fond clair pour la section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+   
+    width: 100%; /* Occupe toute la largeur de la page */
+    position: relative; /* Position relative pour gérer les éléments */
+}
+
+/* Contenu centré dans la section */
+#welcome .content {
+    display: flex;
+    align-items: center; /* Aligner verticalement */
+    justify-content: center;
+    gap: 40px; /* Espacement entre l'image et le texte */
+    padding: 0 20px; /* Ajouter un petit padding pour l'espace autour */
+    width: 100%; /* La largeur complète */
+    max-width: 1200px; /* Limiter la largeur du contenu */
+}    
+/* Image polygonale stylée */
+.welcome-image {
+    width: 350px; /* Taille légèrement plus grande */
+    height: 300px;
+    object-fit: cover;
+   border-radius: 50%;
+}
+
+/* Contenu texte */
+.text-content {
+    max-width: 500px; /* Largeur du texte limitée */
+    text-align: left;
+    color: #333; /* Couleur du texte */
+}
+
+/* Animation pour le h2 */
+#welcome h2 {
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #f8f5f5; /* Couleur sombre pour le texte */
+    animation: fadeInRight 5s  infinite; /* Animation de texte */
+}
+
+/* Animation fadeInRight */
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* Style pour le paragraphe */
+#welcome p {
+    font-size: 1.2rem;
+    color: #fbf8f8; /* Couleur gris pour le texte */
+}
+
+/* Nouveaux styles pour l'arrière-plan */
+#welcome {
+    position: relative;
+  /*  background: url('images/parc.jpg') no-repeat center center;*/
+  background: url('images/kiddyGarden.jpg') no-repeat center center/cover;
+    background-size: cover;
+}
+
+.welcome-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Overlay noir semi-transparent (ajustable) */
+}
+
+#welcome .content {
+    position: relative; /* Pour placer le contenu au-dessus de l'overlay */
+    z-index: 1; /* S'assure que le texte reste visible */
+}
+@media (max-width: 1024px) {
+    #welcome{
+      width: 100%;
+    }
+    #welcome .content {
+        flex-direction: column; /* Empiler l'image et le texte */
+        gap: 20px; /* Réduire l'espacement */
+    }
+
+    .welcome-image {
+        width: 250px; /* Réduire la taille de l'image */
+        height: 250px;
+    }
+
+    #welcome h2 {
+        font-size: 2rem; /* Réduire la taille du titre */
+        text-align: center; /* Centrer le texte */
+    }
+
+    #welcome p {
+        font-size: 1rem; /* Réduire la taille du paragraphe */
+        text-align: center; /* Centrer le texte */
+    }
+}
+@media (max-width: 768px) {
+    #welcome {
+        height: auto; /* Ajuster la hauteur automatiquement */
+        padding: 2rem 1rem; /* Ajouter un padding pour l'espace */
+        width: 94%;
+    }
+
+    #welcome .content {
+        flex-direction: column; /* Empiler l'image et le texte */
+        gap: 15px; /* Réduire l'espacement */
+    }
+
+    .welcome-image {
+        width: 200px; /* Réduire davantage la taille de l'image */
+        height: 200px;
+    }
+
+    #welcome h2 {
+        font-size: 1.8rem; /* Réduire la taille du titre */
+        text-align: center; /* Centrer le texte */
+    }
+
+    #welcome p {
+        font-size: 0.9rem; /* Réduire la taille du paragraphe */
+        text-align: center; /* Centrer le texte */
+    }
+}
+/* style pour section service*/
+#services {
+    background-color: #f8f9fa;
+    padding: 40px 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+#services h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+#services ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+#services li {
+    background: white;
+    padding:  20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.2em;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+#services li i {
+    font-size: 1.5em;
+    color: #b36572; /* Couleur de l'icône par défaut */
+    transition: color 0.3s ease-in-out; /* Transition pour la couleur de l'icône */
+}
+#services li:hover i {
+    color: white; /* Changement de la couleur de l'icône au survol */
+}
+#services li:hover {
+   /* transform: scale(1.05);*/
+    background: #b36572;
+    color: white;
+    /*transform: translateY(-5px) scale(1.1);*/
+}
+#services li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: left 0.3s ease-in-out;
+}
+#services li:hover::after {
+    left: 100%;
+}
+/* Style général des sections */
+#transport {
+    background-color: #f8f8f8;
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+/* Style des titres */
+#transport h2, #horaire h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 15px;
+}
+/* Style des icônes */
+#transport h2 i, #horaire h2 i {
+    color: #b36572;
+    margin-right: 10px;
+}
+/* Ligne de séparation */
+hr {
+    width: 50%;
+    margin: 10px auto;
+    border: 1px solid #b36572;
+}
+/* Style des listes */
+#transport ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Style des éléments de liste */
+#transport li {
+    background: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    transform: translateY(-5px) scale(1.1); /* Animation de survol comme le bouton */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Ombre plus prononcée au survol */
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 80%;
+    justify-content: center;
+    position: relative; /* Nécessaire pour le déplacement */
+    overflow: hidden; /* Cache le débordement */
+    transition: transform 0.3s ease-in-out;
+}
+/* Effet au survol */
+#transport li:hover {
+    /*transform: scale(1.05);*/
+    background: #b36572;
+    color: white;
+    
+}
+
+/* Style des icônes dans la liste */
+#transport li i {
+    font-size: 1.5em;
+    color: #b36572;
+    transition: color 0.3s ease-in-out;
+}
+/* Changement de couleur au survol */
+#transport li:hover i {
+    color: white;
+}
+/* Effet de lumière au survol (comme le bouton) */
+ #transport li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Lumière blanche */
+    transition: left 0.3s ease-in-out;
+}
+ #transport li:hover::after {
+    left: 100%; /* Déplace la lumière de gauche à droite */
+}
+#horaire {
+    background-color: mistyrose;
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#horaire ul {
+    display: flex; /* Utilisation de flexbox */
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne si nécessaire */
+    justify-content: center; /* Centre les éléments */
+    gap: 10px; /* Espace entre les cartes */
+    padding: 0;
+}
+
+#horaire li {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 0.9em;
+    display: flex;
+    flex-direction: column; /* Organiser en colonne */
+    align-items: center;
+    gap: 5px;
+    text-align: center;
+    transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+#horaire li:hover {
+    background: #b36572;
+    color: white;
+    transform: translateY(-5px); /* Légère élévation au survol */
+}
+
+#horaire li i {
+    font-size: 1.5em; /* Taille de l'icône */
+    color: #b36572;
+    transition: color 0.3s ease-in-out;
+}
+
+#horaire li:hover i {
+    color: white;
+}
+
+#horaire li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Effet de lumière */
+    transition: left 0.3s ease-in-out;
+}
+
+#horaire li:hover::after {
+    left: 100%; /* Déplace la lumière de gauche à droite */
+}
+/* Styles pour les tablettes (écrans de 768px à 1024px) */
+@media (max-width: 1024px) {
+    /* Ajustement des titres */
+    #transport h2, #horaire h2 {
+        font-size: 1.8em; /* Taille de police légèrement réduite */
+    }
+
+    /* Ajustement des éléments de liste */
+    #transport li, #horaire li {
+       width: 90%;
+        font-size: 1.1em; /* Taille de police ajustée */
+    }
+
+    /* Ajustement des icônes */
+    #transport li i, #horaire li i {
+        font-size: 1.3em; /* Taille des icônes réduite */
+    }
+
+    /* Ajustement des marges et paddings */
+    #transport, #horaire {
+        padding: 20px 15px; /* Réduction du padding */
+    }
+
+    /* Ajustement de la ligne de séparation */
+    hr {
+        width: 60%; /* Ligne de séparation plus large */
+    }
+}
+
+/* Styles pour les téléphones (écrans de moins de 768px) */
+@media (max-width: 768px) {
+    /* Ajustement des titres */
+    #transport h2, #horaire h2 {
+        font-size: 1.5em; /* Taille de police réduite */
+    }
+
+    /* Ajustement des éléments de liste */
+    #transport li, #horaire li {
+        width: 80%;
+        font-size: 1em; /* Taille de police réduite */
+        padding: 10px 15px; /* Réduction du padding */
+        
+    }
+
+    /* Ajustement des icônes */
+    #transport li i, #horaire li i {
+        font-size: 1.2em; /* Taille des icônes réduite */
+    }
+    #horaire ul {
+        flex-direction: row; /* Les éléments s'empilent verticalement */
+        gap: 10px; /* Espacement entre les éléments */
+    }
+    /* Ajustement des marges et paddings */
+    #transport, #horaire {
+        padding: 15px 10px; /* Réduction du padding */
+    }
+    /* Ajustement de la ligne de séparation */
+    hr {
+        width: 70%; /* Ligne de séparation plus large */
+    }
+    /* Ajustement des effets de survol */
+    #transport li:hover, #horaire li:hover {
+        transform: translateY(-3px); /* Effet de survol moins prononcé */
+    }
+}
+
+/* Styles pour les très petits écrans (écrans de moins de 480px) */
+@media (max-width: 480px) {
+    /* Ajustement des titres */
+    #transport h2, #horaire h2 {
+        font-size: 1.3em; /* Taille de police encore plus réduite */
+    }
+
+    /* Ajustement des éléments de liste */
+    #transport li, #horaire li {
+        font-size: 0.9em; /* Taille de police réduite */
+        padding: 8px 12px; /* Réduction du padding */
+        width: 80%;
+    }
+
+    /* Ajustement des icônes */
+    #transport li i, #horaire li i {
+        font-size: 1em; /* Taille des icônes réduite */
+    }
+
+    /* Ajustement des marges et paddings */
+    #transport, #horaire {
+        padding: 10px 5px; /* Réduction du padding */
+    }
+
+    /* Ajustement de la ligne de séparation */
+    hr {
+        width: 80%; /* Ligne de séparation encore plus large */
+    }
+}
+
+.quantity-control {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+.quantity-minus, .quantity-plus {
+    background-color: #b36572;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.quantity {
+    margin: 0 10px;
+    font-size: 16px;
+    font-weight: bold;
+}
+.add-to-cart {
+    background: #b36572; /* Couleur de fond */
+    border: none;
+    color: #fff; /* Couleur du texte */
+    padding: 0.7rem; /* Ajustez le padding pour un cercle parfait */
+    border-radius: 50%; /* Rend le bouton circulaire */
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    width: 40px; /* Largeur fixe pour un cercle */
+    height: 40px; /* Hauteur fixe pour un cercle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto; /* Aligne le bouton à droite */
+}
+
+.add-to-cart:hover {
+    background: #d0a3af; /* Couleur au survol */
+    transform: scale(1.05); /* Effet de zoom au survol */
+}
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }  
+}
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: repeat(2,1fr);
+    }    
+}
+#panier-circle {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    background: linear-gradient(135deg, #b36572, #d0a3af);
+    border-radius: 50%;
+    width: 60px; /* Taille réduite pour ne montrer que l'icône */
+    height: 60px; /* Taille réduite pour ne montrer que l'icône */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    cursor: pointer; /* Changer le curseur pour indiquer que c'est cliquable */
+}
+#panier-circle:hover {
+    background: linear-gradient(135deg, #d0a3af, #b36572);
+    transform: scale(1.1);
+}
+#panier-icon {
+    font-size: 2rem; /* Taille de l'icône */
+    margin: 0;
+}
+
+/* Ajout du fond semi-transparent du modal */
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* Caché par défaut */
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+/* Modification de #panier-details pour en faire un modal */
+#panier-details {
+    position: relative;
+    bottom: auto;
+    left: auto;
+    width: 500px;
+    max-height: 80vh;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    overflow-y: auto; /* Activer le scroll */
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Afficher le modal avec animation */
+#modal-overlay.visible {
+    display: flex;
+}
+
+#panier-details.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Bouton de fermeture du modal */
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #b36572;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+#close-modal:hover {
+    background: #e09ea9;
+}
+.delete-button{
+    background-color: #ed0303;
+}
+.delete-button:hover{
+    background-color: #f14b4b;
+}
+/* Style du menu profil */
+.profile-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.profile-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.profile-button:hover {
+    transform: scale(1.1);
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    min-width: 180px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 10px 0;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.profile-dropdown a {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.profile-dropdown a i {
+    width: 20px;
+    margin-right: 10px;
+    color: #B36572;
+}
+
+.profile-dropdown a:hover {
+    background: #f5f5f5;
+    color: #B36572;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gestion de l'affichage */
+.profile-menu.active .profile-dropdown {
+    display: block;
+}
+
+
+
+/* ALERT SYSTEM STYLES */
+.alert-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: all 0.3s ease;
+  }
+  
+  .alert-overlay.active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  
+  .alert-box {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    display: flex;
+    overflow: hidden;
+    animation: slideIn 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-50px); }
+    to { transform: translateY(0); }
+  }
+  
+  .alert-icon {
+    width: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+    color: white;
+  }
+  
+  .alert-content {
+    flex: 1;
+    padding: 20px 15px;
+  }
+  
+  .alert-title {
+    margin: 0 0 5px 0;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .alert-message {
+    margin: 0;
+    font-size: 15px;
+    color: #555;
+  }
+  
+  .alert-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #999;
+    transition: color 0.2s;
+  }
+  
+  .alert-close:hover {
+    color: #333;
+  }
+  
+  .alert-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+  
+  /* ALERT TYPES */
+  .alert-success {
+    border-left: 5px solid #4CAF50;
+  }
+  .alert-success .alert-icon {
+    background-color: #4CAF50;
+  }
+  .alert-success .alert-progress {
+    background: linear-gradient(to right, #4CAF50, #8BC34A);
+  }
+  
+  .alert-error {
+    border-left: 5px solid #F44336;
+  }
+  .alert-error .alert-icon {
+    background-color: #F44336;
+  }
+  .alert-error .alert-progress {
+    background: linear-gradient(to right, #F44336, #FF5722);
+  }
+  
+  .alert-warning {
+    border-left: 5px solid #FF9800;
+  }
+  .alert-warning .alert-icon {
+    background-color: #FF9800;
+  }
+  .alert-warning .alert-progress {
+    background: linear-gradient(to right, #FF9800, #FFC107);
+  }
+  
+  .alert-info {
+    border-left: 5px solid #2196F3;
+  }
+  .alert-info .alert-icon {
+    background-color: #2196F3;
+  }
+  .alert-info .alert-progress {
+    background: linear-gradient(to right, #2196F3, #03A9F4);
+  }

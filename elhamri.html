@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Manège Elhamri</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="elhamri.css"> 
+    
+</head>
+<body>
+    <header>
+        <h1> Manège Elhamri</h1>
+        <nav>
+            <ul>
+                <li><a href="exple.html" title="home"><i class="fas fa-home"></i></a></li>
+                <li><a href="#services"><i class="fas fa-tools"></i> Services</a></li>
+                <li><a href="#games"><i class="fas fa-gamepad"></i>Attractions</a></li>
+                <li><a href="#transport"><i class="fas fa-car"></i> Transport</a></li>
+                <li><a href="#horaire"><i class="fas fa-clock"></i>  Horaires</a></li>    
+            </ul>
+        </nav>
+        <div class="auth-buttons" id="auth-buttons">
+            <!-- État non connecté -->
+            <button class="auth-button" id="login-btn" onclick="window.location.href='login.html'">
+                <i class="fas fa-sign-in-alt"></i> Connexion
+            </button>
+            
+            <!-- État connecté -->
+            <div class="profile-menu" id="user-profile" style="display: none;">
+                <button class="profile-button" id="profile-btn">
+                    <img src="images/avatar.png" alt="Photo de profil" class="profile-pic">
+                </button>
+                <div class="profile-dropdown">
+                    <a href="profil.html"><i class="fas fa-user"></i> Mon profil</a>
+                    <a href="histo.html"><i class="fas fa-history"></i> Historique</a>
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </div>
+            </div>
+        </div> 
+    </header>
+    <section id="welcome">
+        <div class="welcome-bg-overlay"></div> <!-- Overlay optionnel pour assombrir l'image -->
+        <div class="content">
+            <div class="text-content">
+                <h2>Bienvenue au Manège El Hamri</h2>
+                <p>Plongez dans un monde de plaisir et d’aventure au Manège El Hamri. 
+                Profitez de nos attractions captivantes, des manèges amusants et d’une ambiance magique pour toute la famille !</p>
+            </div>  
+        </div>
+    </section>
+        <section id="services">
+            <h2><i class="fas fa-tools"></i> Services Annexes</h2>
+            <hr>
+            <ul>
+                <li>🍴 Restaurants </li>
+                <li>☕ Cafétéria </li>
+                <li>🚻 Sanitaires</li>
+                <li>Salle de priere</li>
+                <li>🅿️ Parking sécurisé</li>
+            </ul>
+        </section>
+        <section id="games">
+            <h2> <i class="fas fa-gamepad"></i>Attractions</h2>
+            <hr>
+            <div class="category-buttons">
+                <button class="category-button" data-category="Famille">Famille</button>
+                <button class="category-button" data-category="Enfant">Enfant</button>
+                <button class="category-button" data-category="Adulte">Adulte</button>
+            </div>
+            <div class="grid-container">
+            <div class="game" data-category="Enfant">
+                <img src="images/manege1.jpg" alt="Bateau">
+                <div>
+                    <h3 class="click-here">Twister </h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege2.jpg" alt="Mini Chevaux">
+                <div>
+                    <h3 class="click-here">Mini Chevaux</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege3.jpg" alt="Mini Bateau">
+                <div>
+                    <h3 class="click-here">Mini Bateau</h3>
+                    <p>Prix : 100 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege4.jpg" alt="Pedalo">
+                <div>
+                    <h3 class="click-here">Pedalo enfant</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege4.jpg" alt="Pedalo">
+                <div>
+                    <h3 class="click-here">Pedalo adulte</h3>
+                    <p>Prix : 100 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege5.jpg" alt="manege des cheveaux">
+                <div>
+                    <h3 class="click-here">Manege des cheveaux</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege6.jpg" alt="Mini chaine circulaire">
+                <div>
+                    <h3 class="click-here">Mini chaine circulaire</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege7.jpg" alt="Draggon">
+                <div>
+                    <h3 class="click-here">Draggon enfant</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege7.jpg" alt="Draggon">
+                <div>
+                    <h3 class="click-here">Draggon adulte</h3>
+                    <p>Prix : 100 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Adulte">
+                <img src="images/manege8.jpg" alt="Bateau Corsaire">
+                <div>
+                    <h3 class="click-here">Bateau Corsaire</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Adulte">
+                <img src="images/manege9.jpg" alt="Dragon Electrique">
+                <div>
+                    <h3 class="click-here">Dragon Electrique</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege10.jpg" alt="avion ">
+                <div>
+                    <h3 class="click-here">Avion</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege11.jpg" alt="Cinéma 5D">
+                <div>
+                    <h3 class="click-here">Cinema 5D adulte</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege11.jpg" alt="Cinéma 5D">
+                <div>
+                    <h3 class="click-here">Cinema 5D enfant</h3>
+                    <p>Prix : 150 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege12.jpg" alt="TELE COMBAT">
+                <div>
+                    <h3 class="click-here">TELE COMBAT</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege13.jpg" alt="Autos Scooter">
+                <div>
+                    <h3 class="click-here">Autos Scooter adulte</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege13.jpg" alt="Autos Scooter">
+                <div>
+                    <h3 class="click-here">Autos Scooter enfant</h3>
+                    <p>Prix : 100 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege14.jpg" alt="Show Boat">
+                <div>
+                    <h3 class="click-here">Show Boat adulte</h3>
+                    <p>Prix : 100 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege14.jpg" alt="Show Boat">
+                <div>
+                    <h3 class="click-here">Show Boat enfant</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege15.jpg" alt="chaise electrique">
+                <div>
+                    <h3 class="click-here">Chaise Electrique</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege16.jpg" alt="Dauphin">
+                <div>
+                    <h3 class="click-here">Dauphain</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game"data-category="Famille"> 
+                <img src="images/manege17.jpg" alt="Matterhorn">
+                <div>
+                    <h3 class="click-here">Matterhorn adulte</h3>
+                    <p>Prix : 100 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game"data-category="Famille">
+                <img src="images/manege17.jpg" alt="Matterhorn">
+                <div>
+                    <h3 class="click-here">Matterhorn enfant</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div> 
+            <div class="game" data-category="Adulte">
+                <img src="images/manege18.jpg" alt="Grand Haut">
+                <div>
+                    <h3 class="click-here">Grand Haut</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege19.jpg" alt="Le Dinosaure">
+                <div>
+                    <h3 class="click-here">Le Dinosaure</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+             <div class="game" data-category="Famille"> 
+                <img src="images/manege20.jpg" alt="balencoire">
+                <div>
+                    <h3 class="click-here">Balencoire adulte</h3>
+                    <p>Prix : 100 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege20.jpg" alt="balencoire">
+                <div>
+                    <h3 class="click-here">Balencoire enfant</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+             </div> 
+            <div class="game" data-category="Adulte">
+                <img src="images/manege21.jpg" alt="Traban">
+                <div>
+                    <h3 class="click-here">Traban</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege22.jpg" alt="Mini scooter">
+                <div>
+                    <h3 class="click-here">Mini Scooter</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege23.jpg" alt="Train de peur">
+                <div>
+                    <h3 class="click-here">Train de peur adulte</h3>
+                    <p>Prix : 100 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/manege23.jpg" alt="Train de peur">
+                <div>
+                    <h3 class="click-here">Train de peur enfant</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege24.jpg" alt="Manege Batman ">
+                <div>
+                    <h3 class="click-here">Manege Batman</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege25.jpg" alt="Redeo">
+                <div>
+                    <h3 class="click-here">REDEO</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege26.jpg" alt="Jeux">
+                <div>
+                    <h3 class="click-here">Jeux enfant</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege27.jpg" alt="Jeux">
+                <div>
+                    <h3 class="click-here">Jeux</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege28.jpg" alt="Manege de pieuvre">
+                <div>
+                    <h3 class="click-here">Manege de Pieuvre</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege29.jpg" alt="Site Gonflable">
+                <div>
+                    <h3 class="click-here">Site Gonflable</h3>
+                    <p>Prix : 100 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege30.jpg" alt="jeux de course">
+                <div>
+                    <h3 class="click-here">jeux de course</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege31.jpg" alt="Trampoline">
+                <div>
+                    <h3 class="click-here">Trampoline</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege32.jpg" alt="jeux">
+                <div>
+                    <h3 class="click-here">jeux voiture</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege33.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Autos Tamponage</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege34.jpg" alt="Le Clown">
+                <div>
+                    <h3 class="click-here">Le Clown</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege35.jpg" alt="Escargot">
+                <div>
+                    <h3 class="click-here">Escargot</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege36.jpg" alt="Mini moto">
+                <div>
+                    <h3 class="click-here">Mini Moto</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege37.jpg" alt="Voitures anciennes">
+                <div>
+                    <h3 class="click-here">Voitures anciennes</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege38.jpg" alt="petit train">
+                <div>
+                    <h3 class="click-here">Petit Train</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege39.jpg" alt="Mini Roue">
+                <div>
+                    <h3 class="click-here">Mini Roue</h3>
+                    <p>Prix : 100 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/manege40.jpg" alt="Mini Train">
+                <div>
+                    <h3 class="click-here">Mini Train</h3>
+                    <p>Prix : 50 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+        </div> 
+        </section>
+        <section id="transport">
+            <h2><i class="fas fa-car"></i> Moyens de Transport</h2>
+            <hr>
+            <ul>
+                <li><i class="fas fa-bus"></i> Bus: B .</li>
+                <li><i class="fas fa-taxi" ></i> Taxi .</li>
+                <li><i class="fas fa-car"></i> Voiture personnelle .</li>
+            </ul>
+        </section>
+        <section id="horaire">
+            
+            <h2>🕒 Les Horaires</h2>
+            <hr>
+            <ul>
+                <li>L'ouverture de park: 14h00</li>
+                <li>Fermeture de park: 20h00</li>
+                
+            </ul>
+        </section>
+        <div id="panier-circle" title="Panier">
+            <h2 id="panier-icon">🛒</h2> <!-- Icône du panier -->
+        </div>
+        
+        <!-- Ajout du fond semi-transparent pour le modal -->
+        <div id="modal-overlay" style="display:none;">
+            <div id="panier-details">
+                <button id="close-modal">✖</button> <!-- Bouton de fermeture -->
+                <div class="panier-list-container"> <!-- Conteneur pour la liste avec scroll -->
+                    <h2>Panier</h2>
+                    <ul id="panier-list"></ul>
+                </div>
+                <p id="total-price">Total: 0 DA</p>
+                <button id="checkout-button">Payer</button>
+            </div>
+        </div>
+    <footer>
+        <p>•<strong> 📞Téléphone :</strong> +213 555 123 456</p>
+        <p>•<strong> Adresse :</strong>Face stade Ahmed Zabana, Oran 31000, Algeria</p>
+        <p>&copy; 2025 Manège Elhamri. Tous droits réservés.</p>
+    </footer>
+
+    <button id="to-top" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+    <div id="modal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="modal-img" src="" alt="">
+            <video id="modal-video" controls style="display: none;"></video>
+        </div>
+    </div>
+
+   
+    <script src="elhamri.js"></script>
+</body>
+</html>

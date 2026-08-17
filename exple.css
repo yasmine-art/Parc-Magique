@@ -1,0 +1,1162 @@
+body {
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #ECF0F1; /* Couleur claire */
+    color: #333;
+}
+
+header {
+    background: #b36572;
+    color: #333;
+    padding: 2rem 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: 10%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+header nav {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px; /* Ajout d'un espace entre le bouton et les liens */
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline-block;
+    margin: 0 10px;
+    animation: fadeIn 0.5s forwards;
+    animation-delay: calc(0.1s * var(--i));
+}
+
+/* Réduire la taille des liens */
+header nav ul li a {
+    text-decoration: none;
+    color: mistyrose;
+    font-size: 20; /* Taille réduite */
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease, transform 0.3s ease;
+    outline: none;
+}
+
+header nav ul li a:hover {
+    color: rgb(236, 196, 192);
+    transform: translateY(-2px);
+}
+
+header nav ul li a:focus {
+    text-decoration: none;
+}
+
+header nav ul li a::before,
+header nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+header nav ul li a:hover::before,
+header nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+header nav ul li a i {
+    margin-right: 8px;
+    font-size: 20px; /* Taille réduite */
+    transition: transform 0.3s ease;
+}
+
+header nav ul li a:hover i {
+    transform: rotate(15deg);
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+h1 {
+    border: none;
+    margin: 0;
+    color: mistyrose;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.auth-buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.auth-button {
+    background: linear-gradient(135deg, #b36572, rgb(242, 192, 175));
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-button i {
+    font-size: 1rem;
+}
+
+.auth-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: left 0.3s ease-in-out;
+}
+
+.auth-button:hover::after {
+    left: 100%;
+}
+
+.auth-button:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, rgb(242, 192, 175), #b36572);
+}
+/* Mode tablette moyenne (600px à 750px) - Comme le mobile */
+@media (min-width: 600px) and (max-width: 750px) {
+    header {
+        padding: 0.8rem;
+        flex-wrap: wrap;
+    }
+    
+    /* Menu hamburger */
+    #hamburger-menu {
+        display: block;
+        order: 1;
+        margin-right: 0.5rem;
+        font-size: 1.8rem;
+    }
+    
+    /* Titre centré */
+    header h1 {
+        order: 2;
+        flex: 1;
+        text-align: center;
+        margin: 0 0.5rem;
+        font-size: 1.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Bouton de connexion réduit */
+    .auth-buttons {
+        order: 3;
+        position: static;
+        transform: none;
+    }
+    
+    .auth-button {
+        padding: 0.6rem;
+        font-size: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+    }
+    
+    .auth-button i {
+        font-size: 1.2rem;
+        margin: 0;
+    }
+    
+    /* Navigation cachée par défaut */
+    header nav {
+        display: none;
+        order: 4;
+        width: 100%;
+        margin-top: 1rem;
+        background: #b36572;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    
+    /* Menu visible */
+    header nav.mobile-visible {
+        display: block;
+        animation: slideDown 0.3s ease-out;
+    }
+    
+    header nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 0.5rem 0;
+    }
+    
+    header nav ul li {
+        width: 100%;
+        margin: 0;
+        text-align: center;
+    }
+    
+    header nav ul li a {
+        display: block;
+        padding: 1rem;
+        font-size: 1.1rem;
+    }
+    
+    header nav ul li a i {
+        font-size: 1.3rem;
+    }
+}
+
+/* Ajustement spécifique pour la plage 750px-992px */
+@media (min-width: 751px) and (max-width: 992px) {
+    /* Conserver le style tablette existant */
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Mode mobile */
+@media (max-width: 768px) {
+    header {
+        padding:0.5rem 1rem;
+        flex-wrap: wrap;
+    }
+    
+    header h1 {
+        position: static;
+        order: 2;
+        transform: none;
+        flex: 1;
+        text-align: center;
+
+    }
+    
+    /* Menu hamburger */
+    .menu-toggle {
+        display: block;
+        order: 1;
+        background: none;
+        border: none;
+        color: mistyrose;
+        font-size: 1.5rem;
+        cursor: pointer;
+        padding: 0.5rem;
+        
+    }
+    
+    /* Navigation principale cachée en mobile */
+    header nav {
+        display: none;
+        order: 4;
+        width: 100%;
+        margin-top: 1rem;
+        
+    }
+    
+    /* Menu mobile visible */
+    header nav.mobile-visible {
+        display: block;
+        animation: fadeIn 0.3s ease-out;
+    }
+    
+    header nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .auth-buttons {
+        order: 3;
+        margin-left: 0;
+        top: 1px; /* Remonter les boutons d'authentification */
+        right: 0;
+    }
+    .auth-button{
+        padding: 0.6rem;
+        font-size: 0;
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+    }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}    
+h1 {
+    border: none;
+    margin: 0; 
+    color: mistyrose; /* Couleur du titre */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Ombre pour le titre */
+}
+
+#features {
+    padding: 30px 15px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+#features h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+#features p {
+    font-size: 1rem;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.feature {
+    display: inline-block;
+    width: 28%; /* Réduit la largeur des éléments */
+    margin: 10px;
+    padding: 15px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.feature:hover {
+    transform: translateY(-5px);
+}
+
+.feature i {
+    font-size: 2.5rem;
+    color: #b36572;
+    margin-bottom: 10px;
+}
+
+.feature h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.feature p {
+    font-size: 1rem;
+    color: #666;
+}
+@media (max-width: 768px) {
+    #features {
+        padding: 20px 10px; /* Réduit le padding */
+    }
+
+    .feature {
+        width: 80%; /* Ajuste la largeur des éléments */
+        margin: 10px 0; /* Réduit l'espace entre les éléments */
+    }
+
+    .feature i {
+        font-size: 2rem; /* Réduit la taille des icônes */
+    }
+
+    .feature h3 {
+        font-size: 1rem; /* Réduit la taille des titres */
+    }
+
+    .feature p {
+        font-size: 0.9rem; /* Réduit la taille du texte */
+    }
+}
+
+@media (max-width: 480px) {
+    .feature {
+        width: 80%; /* Les éléments prennent toute la largeur */
+    }
+
+    .feature i {
+        font-size: 1.5rem; /* Réduit encore la taille des icônes */
+    }
+
+    .feature h3 {
+        font-size: 0.9rem; /* Réduit encore la taille des titres */
+    }
+
+    .feature p {
+        font-size: 0.8rem; /* Réduit encore la taille du texte */
+    }
+}
+
+
+#parks{
+    background-color: mistyrose;
+    padding: 30px 15px;        
+     text-align: center;
+}
+#parks h1{
+   color: #b36572;
+}
+#parks ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    list-style-type: none;
+    padding: 0;
+}
+#parks ul li {
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    perspective: 1000px;
+    position: relative; /* Nécessaire pour positionner le pseudo-élément */
+}
+#parks ul li::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3); /* Effet de lumière */
+    transition: left 0.5s ease-in-out; /* Animation de la lumière */
+    pointer-events: none; /* Permet de cliquer à travers le pseudo-élément */
+}
+#parks ul li:hover::after {
+    left: 100%; /* Déplacement de la lumière */
+}
+#parks ul li:hover {
+    transform: rotateY(15deg) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    background-color: mistyrose;
+}
+#parks ul li img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+#parks ul li:hover img {
+    transform: scale(1.1); 
+}
+#parks ul li a {
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    color: #b36572; /* Couleur différente */
+    font-weight: bold;
+}
+#parks ul li a:hover {
+    color: #007BFF;
+}
+/*categorie parcs*/
+.category-buttons {
+    text-align: center;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.category-button {
+    background:linear-gradient(#b36572,#e5c8cd); /* Dégradé de beige */
+    color: #333;
+    border-radius: 50px;
+    padding: 15px 25px;
+    margin: 0 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.category-button:hover {
+    background: linear-gradient(135deg, #e5c8cd, #b36572); /* Dégradé inversé au survol */
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+.category-button i {
+    font-size: 1.2rem;
+}
+.category-button::after {
+content: '';
+position: absolute;
+top: 100%;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(255, 255, 255, 0.3);
+transition: top 0.3s ease;
+}
+.category-button:hover::after {
+top: 0; /* Fait glisser l'effet de lumière vers le haut */
+}
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% {
+transform: translateY(0);
+}
+40% {
+transform: translateY(-10px); /* Légère élévation */
+}
+60% {
+transform: translateY(-5px); /* Légère élévation */
+}
+}
+.bounce {
+animation: bounce 0.3s; /* Applique l'animation de rebond */
+}
+.parks-container {
+    position: relative;
+    display: flex;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+    width: 100%;
+}
+.parks-list {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    transition: transform 0.5s ease;
+    opacity: 1;
+    transform: translateX(100%);
+}
+#parks h2{
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+.parks-list.active {
+    display: flex;
+    opacity: 1;
+    transform: translateX(0);
+}
+.parks-list ul li {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0);
+    transition: box-shadow 0.3s ease;
+}
+.parks-list ul li:hover {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+}
+@media (max-width: 768px) {
+    #parks {
+        padding: 20px 10px; /* Réduit le padding */
+    }
+
+    #parks h1 {
+        font-size: 1.8rem; /* Réduit la taille du titre */
+    }
+
+    #parks ul {
+        grid-template-columns: repeat(2, 1fr); /* 2 colonnes au lieu de 3 */
+        gap: 15px; /* Réduit l'espace entre les éléments */
+    }
+
+    #parks ul li {
+        margin: 10px 0; /* Réduit l'espace entre les éléments */
+    }
+
+    #parks ul li img {
+        height: 120px; /* Réduit la hauteur des images */
+    }
+
+    #parks ul li a {
+        font-size: 0.9rem; /* Réduit la taille du texte des liens */
+    }
+
+    .category-buttons {
+        flex-wrap: wrap; /* Permet aux boutons de passer à la ligne */
+        gap: 10px; /* Réduit l'espace entre les boutons */
+    }
+
+    .category-button {
+        padding: 10px 20px; /* Réduit le padding des boutons */
+        font-size: 0.9rem; /* Réduit la taille du texte des boutons */
+    }
+}
+@media (max-width: 320px) {
+    #parks h1 {
+        font-size: 1.2rem; /* Réduit encore la taille du titre */
+    }
+
+    #parks ul li img {
+        height: 80px; /* Réduit encore la hauteur des images */
+    }
+
+    #parks ul li a {
+        font-size: 0.7rem; /* Réduit encore la taille du texte des liens */
+    }
+
+    .category-button {
+        padding: 5px 10px; /* Réduit encore le padding des boutons */
+        font-size: 0.7rem; /* Réduit encore la taille du texte des boutons */
+    }
+}
+@media(max-width: 780px){
+    html{
+        scroll-behavior: smooth;
+    }
+}
+/*about section*/
+#about {
+    padding: 40px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+#about h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 15px;
+}
+#about p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+.about-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.about-item {
+    width: 30%;
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+.about-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+.about-item i {
+    font-size: 2.5rem;
+    color: #b36572;
+    margin-bottom: 10px;
+}
+.about-item h3 {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+.about-item p {
+    font-size: 1rem;
+    color: #666;
+}
+@media (max-width: 768px) {
+    #about {
+        padding: 20px 10px; /* Réduit le padding */
+    }
+
+    .about-content {
+        flex-direction: column; /* Empile les éléments verticalement */
+        align-items: center; /* Centre les éléments */
+    }
+
+    .about-item {
+        width:80%; /* Ajuste la largeur des éléments */
+        margin: 10px 0; /* Réduit l'espace entre les éléments */
+    }
+
+    .about-item i {
+        font-size: 2rem; /* Réduit la taille des icônes */
+    }
+
+    .about-item h3 {
+        font-size: 1rem; /* Réduit la taille des titres */
+    }
+
+    .about-item p {
+        font-size: 0.9rem; /* Réduit la taille du texte */
+    }
+}
+@media (max-width: 480px) {
+    .about-item {
+        width: 80%; /* Les éléments prennent toute la largeur */
+    }
+
+    .about-item i {
+        font-size: 1.5rem; /* Réduit encore la taille des icônes */
+    }
+
+    .about-item h3 {
+        font-size: 0.9rem; /* Réduit encore la taille des titres */
+    }
+
+    .about-item p {
+        font-size: 0.8rem; /* Réduit encore la taille du texte */
+    }
+}
+section {
+    padding: 1.5rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+section.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+footer {
+    background: #b36572;
+    color: #333;
+    text-align: center;
+    padding: 1rem 0;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.2);
+}
+footer p {
+    color: mistyrose;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+} 
+footer a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    font-size: 1rem;
+}
+footer a:hover {
+    color: black;
+}
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #b36572, rgb(242, 192, 175));
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: none; 
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+}
+#back-to-top:hover {
+    background: linear-gradient(135deg, rgb(242,192,175), #b36572);   
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+   width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+    z-index: 1001;
+    overflow-y: auto;
+}
+.modal-content {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem; 
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    animation: modalFadeIn 0.5s ease forwards; /* Animation d'apparition */
+}
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.modal-content h2 {
+    font-size: 1.5rem; 
+    margin-bottom: 1rem;
+    color: rgb(230, 108, 52);
+}
+.modal-content p {
+    font-size: 0.9rem; 
+    line-height: 1.6;
+    color: #444242;
+}
+.modal-content iframe {
+    width: 100%;
+    height: 200px;
+    border: 0;
+    margin: 1rem 0;
+}
+.modal-content .visit-button {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    border: none;
+    color: #fff;
+    padding: 0.5rem 1rem; 
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    margin-top: 1rem; 
+}
+.modal-content .visit-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+/* Section Welcome */
+#welcome {
+    height: 100vh; /* Toute la hauteur de la page */
+    background-color: mistyrose; /* Fond clair pour la section */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    width: 100%; /* Occupe toute la largeur de la page */
+    position: relative; /* Position relative pour gérer les éléments */
+}
+
+/* Contenu centré dans la section */
+#welcome .content {
+    display: flex;
+    align-items: center; /* Aligner verticalement */
+    justify-content: center;
+    gap: 40px; /* Espacement entre l'image et le texte */
+    padding: 0 20px; 
+    width: 100%; 
+    max-width: 1200px; /* Limiter la largeur du contenu */
+}
+/* Image d'accueil */
+.welcome-image {
+    width: 300px; 
+    height: 300px;
+    object-fit: cover; /* Garder les proportions */
+    border-radius: 50%; 
+}
+/* Contenu texte */
+.text-content {
+    max-width: 500px; /* Largeur du texte limitée */
+    text-align: left;
+    color: #333; /* Couleur du texte */
+}
+/* Animation pour le h2 */
+#welcome h2 {
+    font-size: 2.5rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #f4f4f4; /* Couleur sombre pour le texte */
+    animation: fadeInRight 5s  infinite; /* Animation de texte */
+}
+/* Animation fadeInRight */
+@keyframes fadeInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+/* Style pour le paragraphe */
+#welcome p {
+    font-size: 1.2rem;
+    color: #f1e9e9; /* Couleur gris pour le texte */
+}
+@media (max-width: 768px) {
+    #welcome .content {
+        flex-direction: column; /* Empile l'image et le texte verticalement */
+        text-align: center; /* Centre le texte */
+        gap: 20px; /* Réduit l'espace entre l'image et le texte */
+    }
+
+    .welcome-image {
+        width: 200px; /* Réduit la taille de l'image */
+        height: 200px;
+    }
+
+    #welcome h2 {
+        font-size: 2rem; /* Réduit la taille du titre */
+    }
+
+    #welcome p {
+        font-size: 1rem; /* Réduit la taille du texte */
+    }
+}
+
+@media (max-width: 480px) {
+    #welcome h2 {
+        font-size: 1.5rem; /* Réduit encore la taille du titre */
+    }
+
+    #welcome p {
+        font-size: 0.9rem; /* Réduit encore la taille du texte */
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+/* Ligne de séparation */
+hr {
+    
+    border: none; /* Supprime le style par défaut */
+    height: 5px; /* Définit l'épaisseur */
+    width: 50%;
+    background-color: #b36572;
+    margin: 20px auto; /* Espacement au-dessus et en dessous */
+    border-radius: 3px; /* Arrondit légèrement les bords */
+}
+#feature h2{
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+/* Style du menu profil */
+.profile-menu {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.profile-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.profile-button:hover {
+    transform: scale(1.1);
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-dropdown {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    background: white;
+    min-width: 180px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 8px;
+    z-index: 1000;
+    padding: 10px 0;
+    animation: fadeIn 0.2s ease-out;
+}
+
+.profile-dropdown a {
+    display: flex;
+    align-items: center;
+    padding: 8px 16px;
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.profile-dropdown a i {
+    width: 20px;
+    margin-right: 10px;
+    color: #B36572;
+}
+
+.profile-dropdown a:hover {
+    background: #f5f5f5;
+    color: #B36572;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Gestion de l'affichage */
+.profile-menu.active .profile-dropdown {
+    display: block;
+}
+
+
+/* Styles pour la barre de recherche */
+.search-container {
+    margin-top: 30px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 30px;
+    padding: 8px 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.search-box:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+#search-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 1rem;
+    color: #333;
+}
+
+#search-btn {
+    background: #b36572;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-btn:hover {
+    background: #9a4d5a;
+    transform: scale(1.05);
+}
+
+.search-results {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 100;
+    display: none;
+    margin-top: 5px;
+}
+
+.search-result-item {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.search-result-item:last-child {
+    border-bottom: none;
+}
+
+.search-result-item:hover {
+    background: #f5f5f5;
+}
+
+.search-result-item i {
+    margin-right: 10px;
+    color: #b36572;
+}
+
+.no-results {
+    padding: 15px;
+    color: #666;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        max-width: 100%;
+    }
+}
+
+
+/* Nouveaux styles pour l'arrière-plan */
+#welcome {
+    position: relative;
+  /*  background: url('images/parc.jpg') no-repeat center center;*/
+  background: url('images/parc4.jpg') no-repeat center center/cover;
+    background-size: cover;
+}
+
+.welcome-bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Overlay noir semi-transparent (ajustable) */
+}
+
+#welcome .content {
+    position: relative; /* Pour placer le contenu au-dessus de l'overlay */
+    z-index: 1; /* S'assure que le texte reste visible */
+}
+
+/* Conservez tous vos styles existants pour .text-content, h2, p, etc. */

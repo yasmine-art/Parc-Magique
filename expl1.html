@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎢 Parcs d'Attractions d'Oran 🎡</title>
+    <link rel="stylesheet" href="expl1.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="icon" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/svgs/solid/star.svg" type="image/svg+xml">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-star"></i> Parc Magique </h1>
+        <nav>
+                <ul>
+                    <li style="--i: 1;"><a href="#features"><i class="fas fa-qrcode"></i>Fonctionnalités</a></li>
+                    <li style="--i: 2;"><a href="#categories"><i class="fas fa-tree"></i> Parks</a></li>
+                    <li style="--i: 3;"><a href="#about"><i class="fas fa-info-circle"></i>À propos</a></li>
+                    
+                </ul>
+        </nav> 
+        <div class="auth-buttons">
+            <button class="auth-button" onclick="window.location.href='login.html'"><i class="fas fa-sign-in-alt"></i>Connexion</button>
+        </div> 
+    </header>   
+        <section id="welcome">
+            <div class="content">
+                <img src="images/parc.jpg" alt="Image d'accueil" class="welcome-image">
+                <div class="text-content">
+                    <h2>Bienvenue sur notre guide des loisirs à Oran</h2>
+                    <p>Découvrez les meilleurs endroits pour vous divertir : parcs d'attractions et aquaparcs !</p>
+                </div>
+            </div>
+        </section>
+        <section id="features">
+            <h2>Nos Fonctionnalités</h2>
+            <hr>
+            <p>Découvrez les fonctionnalités essentielles pour profiter pleinement de nos parcs et attractions.</p>
+        
+            <div class="feature">
+                <i class="fas fa-map-marker-alt"></i>
+                <h3>Carte interactive</h3>
+                <p>Explorez facilement les lieux d'intérêt à Oran.</p>
+            </div>
+        
+            <div class="feature">
+                <i class="fas fa-calendar-alt"></i>
+                <h3>Horaires</h3>
+                <p>Consultez les horaires et événements.</p>
+            </div>
+        
+            <div class="feature">
+                <i class="fas fa-info-circle"></i>
+                <h3>Infos</h3>
+                <p>Des détails sur les attractions et services.</p>
+            </div>
+        </section>        
+        <section id="categories">
+            <h2>Parks</h2>
+            <hr>
+            <p>Explorez nos catégories pour trouver les meilleures attractions.</p>
+        
+            <div class="categories-content">
+                <div class="category-item" id="btn-all">
+                    <i class="fas fa-star"></i>
+                    <h3>Tous</h3>
+                    <p>Découvrez tous les parcs et attractions disponibles.</p>
+                </div>
+                <div class="category-item" id="btn-manege">
+                    <i class="fas fa-ferris-wheel"></i>
+                    <h3>Manèges</h3>
+                    <p>Profitez des manèges les plus excitants.</p>
+                </div>
+                <div class="category-item" id="btn-aquaparc">
+                    <i class="fas fa-swimmer"></i>
+                    <h3>Aquaparcs</h3>
+                    <p>Plongez dans le fun avec nos aquaparcs.</p>
+                </div>
+            </div>
+        </section>
+     <!-- Modal pour Tous les Parcs -->
+<div id="modal-all" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Tous les Parcs</h2>
+        <ul class="parks-list">
+            <li class="manege">
+                <img src="images/elhamri.jpg" alt="Manège Elhamri">
+                <a href="elhamri.html">Manège Elhamri</a>
+            </li>
+            <li class="manege">
+                <img src="images/azGrandOran.jpg" alt="AZ Grand Oran">
+                <a href="azgrandoran.html">AZ Grand Oran</a>
+            </li>
+            <li class="manege">
+                <img src="images/coolPark.jpg" alt="Cool Park">
+                <a href="coolpark.html">Cool Park</a>
+            </li>
+            <li class="manege">
+                <img src="images/kiddyGarden.jpg" alt="Kiddy Garden">
+                <a href="kiddygarden.html">Kiddy Garden</a>
+            </li>
+            <li class="manege">
+                <img src="images/KhaledSpaceKids.jpg" alt="Khaled Space Kids">
+                <a href="spacekids.html">Khaled Space Kids</a>
+            </li>
+            <li class="aquaparc">
+                <img src="images/boukaa.jpg" alt="Boukaa Beach">
+                <a href="boukaa.html">Boukaa Beach</a>
+            </li>
+            <li class="aquaparc">
+                <img src="images/rodina.jpg" alt="Aquaparc Rodina">
+                <a href="rodina.html">Aquaparc Rodina</a>
+            </li>
+            <li class="aquaparc">
+                <img src="images/kristel.jpg" alt="Aquaparc Kristel">
+                <a href="kristel.html">Aquaparc Kristel</a>
+            </li>
+            <li class="aquaparc">
+                <img src="images/aquaAz.jpg" alt="Aquaparc AZ">
+                <a href="aquapark_az.html">Aquaparc AZ</a>
+            </li>
+        </ul>
+    </div>
+</div>
+    <!-- Modal pour Manèges -->
+    <div id="modal-manege" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Manèges</h2>
+            <ul class="parks-list">
+                <li class="manege">
+                    <img src="images/elhamri.jpg" alt="Manège Elhamri">
+                    <a href="elhamri.html">Manège Elhamri</a>
+                </li>
+                <li class="manege">
+                    <img src="images/azGrandOran.jpg" alt="AZ Grand Oran">
+                    <a href="azgrandoran.html">AZ Grand Oran</a>
+                </li>
+                <li class="manege">
+                    <img src="images/coolPark.jpg" alt="Cool Park">
+                    <a href="coolpark.html">Cool Park</a>
+                </li>
+                <li class="manege">
+                    <img src="images/kiddyGarden.jpg" alt="Kiddy Garden">
+                    <a href="kiddygarden.html">Kiddy Garden</a>
+                </li>
+                <li class="manege">
+                    <img src="images/KhaledSpaceKids.jpg" alt="Khaled Space Kids">
+                    <a href="spacekids.html">Khaled Space Kids</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Modal pour Aquaparcs -->
+    <div id="modal-aquaparc" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Aquaparcs</h2>
+            <ul class="parks-list">
+                <li class="aquaparc">
+                    <img src="images/boukaa.jpg" alt="Boukaa Beach">
+                    <a href="boukaa.html">Boukaa Beach</a>
+                </li>
+                <li class="aquaparc">
+                    <img src="images/rodina.jpg" alt="Aquaparc Rodina">
+                    <a href="rodina.html">Aquaparc Rodina</a>
+                </li>
+                <li class="aquaparc">
+                    <img src="images/kristel.jpg" alt="Aquaparc Kristel">
+                    <a href="kristel.html">Aquaparc Kristel</a>
+                </li>
+                <li class="aquaparc">
+                    <img src="images/aquaAz.jpg" alt="Aquaparc AZ">
+                    <a href="aquapark_az.html">Aquaparc AZ</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+        <section id="about">
+            <h2>À propos de nous</h2>
+            <HR>
+            <p>Chez nous, l'expérience client est au cœur de tout ce que nous faisons. Nous croyons que chaque détail compte, de la vente de tickets à la gestion des entrées, pour créer des souvenirs inoubliables.</p>
+            
+            <div class="about-content">
+                <div class="about-item">
+                    <i class="fas fa-smile"></i>
+                    <h3>Votre satisfaction</h3>
+                    <p>Nous mettons tout en œuvre pour répondre à vos attentes.</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>Support personnalisé</h3>
+                    <p>Une équipe dédiée pour vous accompagner à chaque étape.</p>
+                </div>
+                <div class="about-item">
+                    <i class="fas fa-hand-holding-heart"></i>
+                    <h3>Notre engagement</h3>
+                    <p>Nous soutenons les parcs locaux et leurs communautés.</p>
+                </div>
+            </div>
+        </section>
+        
+    <button id="back-to-top" title="Retour en haut"><i class="fas fa-arrow-up"></i> </button>
+    <footer>
+        <p target="_blank" style="margin: 0 10px;  font-size: 1.5rem;">✉️<a href="parc_magic@gmail.com" target="_blank"> parc_magic@gmail.com  </a></p>
+    </div>
+    <p>📞+213 771 428 259  |  📞+213 549 729 686</p>
+        <p id="copyright">&copy; 2025 Parc Magic. Tous droits réservés. </p>
+    </footer>
+   
+    <script src="expl1.js"></script>
+</body>
+</html>

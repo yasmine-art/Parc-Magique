@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket - Parc Magique</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: mistyrose;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        position: relative;
+    }
+    .action-buttons {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        display: flex;
+    }
+    .action-buttons button {
+        padding: 5px 10px;
+        background-color: #b36572;
+        font-size: 16px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: 0.3s;
+        margin: 5px;
+    }
+    .ticket-section {
+        background: #ffffff;
+        padding: 15px;
+        padding-top: 0px;
+        border-radius: 5px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        width: 600px;
+        min-height: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+    }
+    #ticket {
+        text-align: center;
+        width: 100%;
+    }
+    #ticket-park-title {
+        font-size: 26px;
+        font-weight: bold;
+        color: #333;
+        margin: 0 auto;
+    }
+    .ticket-divider {
+        width: 80%;
+        margin: 10px auto;
+        border: none;
+        border-top: 3px solid #b36572;
+    }
+    .ticket-info {
+        flex: 1;
+        padding-right: 20px;
+    }
+    #ticket-info p {
+        margin: 8px 0;
+        font-size: 18px;
+        color: #444;
+    }
+    #ticket-info strong {
+        color: #222;
+    }
+    #qrcode {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        width: 120px;
+        height: 120px;
+        padding: 8px;
+    }
+    .status {
+        font-weight: bold;
+        color: green;
+    }
+    .action-buttons button i {
+        font-size: 18px;
+    }
+
+    /* Style des alertes personnalisées */
+    .custom-alert {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 2000;
+        justify-content: center;
+        align-items: center;
+    }
+    .alert-content {
+        background-color: white;
+        padding: 30px;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        max-width: 400px;
+        text-align: center;
+        animation: fadeIn 0.3s;
+    }
+    .alert-title {
+        font-size: 22px;
+        color: #b36572;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+    .alert-message {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    .alert-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+    }
+    .alert-button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s;
+    }
+    .alert-button-confirm {
+        background-color: #b36572;
+        color: white;
+    }
+    .alert-button-confirm:hover {
+        background-color: #9a5562;
+    }
+    .alert-button-cancel {
+        background-color: #f0f0f0;
+        color: #333;
+    }
+    .alert-button-cancel:hover {
+        background-color: #e0e0e0;
+    }
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* RESPONSIVE DESIGN */
+    @media (max-width: 768px) {
+        body {
+            padding: 10px;
+        }
+        .ticket-section {
+            width: 500px;
+        }
+        #ticket-park-title {
+            font-size: 20px;
+        }
+        #ticket-info p {
+            font-size: 15px;
+        }
+        .action-buttons {
+            top: 5px;
+            right: 5px;
+        }
+        .action-buttons button {
+            padding: 6px 10px;
+            font-size: 12px;
+        }
+        .alert-content {
+            width: 90%;
+            padding: 20px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .ticket-section {
+            width: 390px;
+            padding: 15px;
+        }
+        #ticket-info p {
+            font-size: 14px;
+        }
+        #qrcode {
+            width: 100px;
+            height: 100px;
+        }
+        .alert-title {
+            font-size: 18px;
+        }
+        .alert-message {
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width: 360px) {
+        .ticket-section {
+            width: 300px;
+            padding: 0px;
+        }
+        #ticket-info p {
+            font-size: 13px;
+        }
+        .action-buttons button {
+            font-size: 10px;
+            padding: 5px;
+        }
+    }
+    /* Style du bouton de retour à l'accueil */
+    .home-button {
+        position: fixed;
+        top: 8px;
+        left: 20px;
+        padding: 10px 20px;
+        background: linear-gradient(135deg, #b36572, rgb(242,192,175));
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+        z-index: 1000;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+    }
+    .home-button:hover {
+        transform: translateY(-5px) scale(1.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, rgb(242,192,175), #b36572);
+    }
+</style>
+<body>
+    <!-- Alertes personnalisées -->
+    <div id="successAlert" class="custom-alert">
+        <div class="alert-content">
+            <div class="alert-title">Succès</div>
+            <div class="alert-message">Ticket enregistré avec succès !</div>
+            <div class="alert-buttons">
+                <button class="alert-button alert-button-confirm" onclick="hideAlert('successAlert')">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="warningAlert" class="custom-alert">
+        <div class="alert-content">
+            <div class="alert-title">Attention</div>
+            <div class="alert-message">Vous n'avez pas encore enregistré ou imprimé le ticket. Il faut d'abord enregistrer le ticket.</div>
+            <div class="alert-buttons">
+                <button class="alert-button alert-button-cancel" onclick="hideAlert('warningAlert')">OK</button>
+                <button class="alert-button alert-button-confirm" onclick="saveTicketAndRedirect()">Enregistrer</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="errorAlert" class="custom-alert">
+        <div class="alert-content">
+            <div class="alert-title">Erreur</div>
+            <div class="alert-message">Aucune information de ticket trouvée.</div>
+            <div class="alert-buttons">
+                <button class="alert-button alert-button-confirm" onclick="redirectToHome()">OK</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="home-button" id="homeButton">
+        <i class="fas fa-home"></i>Accueil 
+    </div>
+    <div class="action-buttons">
+        <button class="print-button" onclick="printTicket()" title="imprimer"><i class="fas fa-print" style="color: #ffffff;"></i></button>
+        <button class="save-button" onclick="saveTicket()" title="enregistrer"><i class="fas fa-download" style="color: #ffffff;"></i></button>
+    </div>
+
+    <main>
+        <section class="ticket-section">
+            <div id="ticket">
+                <h2 id="ticket-park-title"></h2>
+                <hr class="ticket-divider">
+            </div>
+            <div id="ticket-info">
+                <p><strong>Nom :</strong> <span id="ticket-nom"></span></p>
+                <p><strong>Email :</strong> <span id="ticket-email"></span></p>
+                <p><strong>Date de visite :</strong> <span id="ticket-date-visite"></span></p>
+                <p><strong>Total :</strong> <span id="ticket-total"></span> DA</p>
+                <p><strong>Statut du paiement :</strong> <span id="ticket-status"></span></p>
+            </div>
+            <div id="qrcode"></div>
+        </section>
+    </main>
+
+    <script>
+        // Variables pour suivre l'état d'enregistrement/impression
+        let ticketSaved = false;
+        let ticketPrinted = false;
+
+        // Fonctions pour gérer les alertes
+        function showAlert(alertId) {
+            document.getElementById(alertId).style.display = 'flex';
+        }
+
+        function hideAlert(alertId) {
+            document.getElementById(alertId).style.display = 'none';
+        }
+
+        function redirectToHome() {
+            window.location.href = 'exple.html';
+        }
+
+        function saveTicketAndRedirect() {
+            // Cache l'alerte
+            hideAlert('warningAlert');
+            
+            // Enregistre le ticket
+            html2canvas(document.querySelector(".ticket-section")).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'ticket.png';
+                link.href = canvas.toDataURL();
+                link.click();
+                ticketSaved = true;
+                
+                // Redirige vers l'accueil après l'enregistrement
+                setTimeout(() => {
+                    window.location.href = 'exple.html';
+                }, 1000);
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const ticketInfo = JSON.parse(localStorage.getItem('ticketInfo'));
+
+            if (ticketInfo) {
+                document.getElementById('ticket-nom').textContent = ticketInfo.nom;
+                document.getElementById('ticket-email').textContent = ticketInfo.email;
+                document.getElementById('ticket-date-visite').textContent = ticketInfo.dateVisite;
+                document.getElementById('ticket-total').textContent = ticketInfo.total;
+                document.getElementById('ticket-status').textContent = ticketInfo.statusPaiement;
+                document.getElementById('ticket-status').style.color = ticketInfo.statusPaiement === "Payé" ? "green" : "red";
+ 
+                const panier = JSON.parse(localStorage.getItem('panier'));
+                new QRCode(document.getElementById("qrcode"), {
+                    text: JSON.stringify(panier),
+                    width: 128,
+                    height: 128
+                });
+            } else {
+                showAlert('errorAlert');
+            }
+        });
+        
+        const parkTitle = localStorage.getItem("parkTitle");
+        if (parkTitle) {
+            document.getElementById("ticket-park-title").textContent = parkTitle;
+        }
+        
+        function saveTicket() {
+            html2canvas(document.querySelector(".ticket-section")).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'ticket.png';
+                link.href = canvas.toDataURL();
+                link.click();
+                ticketSaved = true;
+                showAlert('successAlert');
+            });
+        }
+
+        function printTicket() {
+            window.print();
+            ticketPrinted = true;
+        }
+
+        // Après un achat réussi
+        function saveTicketToHistory() {
+            const ticketData = {
+                id: Date.now(),
+                parkName: localStorage.getItem('parkTitle') || "Parc inconnu",
+                visitDate: document.getElementById('date-visite').value || new Date().toLocaleDateString('fr-FR'),
+                name: document.getElementById('nom').value || "Non spécifié",
+                email: document.getElementById('email').value || "Non spécifié",
+                total: localStorage.getItem('totalAmount') || "0",
+                status: "upcoming"
+            };
+
+            const history = JSON.parse(localStorage.getItem('ticketsHistory')) || [];
+            history.unshift(ticketData);
+            localStorage.setItem('ticketsHistory', JSON.stringify(history));
+        }
+
+        // Gestion du clic sur le bouton d'accueil
+        document.getElementById('homeButton').addEventListener('click', function() {
+            if (ticketSaved || ticketPrinted) {
+                redirectToHome();
+            } else {
+                showAlert('warningAlert');
+            }
+        });
+
+        // Appeler cette fonction après un achat réussi
+        saveTicketToHistory();
+    </script>
+</body>
+</html>

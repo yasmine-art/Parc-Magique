@@ -1,0 +1,1274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khaled space kids</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="spacekids.css"> 
+    
+</head>
+<body>
+    <header>
+        <h1>Khaled space kids</h1>
+        <nav>
+            <ul>
+                <li><a href="exple.html" title="home"><i class="fas fa-home"></i></a></li>
+                <li><a href="#services"><i class="fas fa-tools"></i> Services</a></li>
+                <li><a href="#games"><i class="fas fa-gamepad"></i>Attractions</a></li>
+                <li><a href="#transport"><i class="fas fa-car"></i> Transport</a></li>
+                <li><a href="#horaire"><i class="fas fa-clock"></i>  Horaires</a></li>
+                
+            </ul>
+        </nav>
+        <div class="auth-buttons" id="auth-buttons">
+            <!-- État non connecté -->
+            <button class="auth-button" id="login-btn" onclick="window.location.href='login.html'">
+                <i class="fas fa-sign-in-alt"></i> Connexion
+            </button>
+            
+            <!-- État connecté -->
+            <div class="profile-menu" id="user-profile" style="display: none;">
+                <button class="profile-button" id="profile-btn">
+                    <img src="images/avatar.png" alt="Photo de profil" class="profile-pic">
+                </button>
+                <div class="profile-dropdown">
+                    <a href="profil.html"><i class="fas fa-user"></i> Mon profil</a>
+                    <a href="histo.html"><i class="fas fa-history"></i> Historique</a>
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </div>
+            </div>
+        </div> 
+    </header>
+    <section id="welcome">
+        <div class="welcome-bg-overlay"></div> 
+        <div class="content">
+            <!-- <img src="images/KhaledSpaceKids.jpg" alt="Image d'accueil" class="welcome-image"> -->
+            <div class="text-content">
+                <h2> Bienvenue à Khaled Space Kids </h2>
+                <p>Vivez des moments inoubliables à Space Khaled Kids. 
+                Découvrez un univers enchanté rempli d’attractions passionnantes, de jeux amusants et d’une atmosphère féerique pour les enfants et toute la famille !</p>
+            </div>  
+        </div>
+    </section>
+    <section id="services">
+        <h2><i class="fas fa-tools"></i> Services Annexes</h2>
+        <hr>
+        <ul>
+            <li>🍴 Restaurants </li>
+            <li>☕ Cafétéria </li>
+            <li>🚻 Sanitaires</li>
+            <li>🅿️ Parking sécurisé</li>
+        </ul>
+        <h2>Les vidéo</h2>
+        <hr>
+        <div class="carousel-container">
+            <div class="carousel">
+            <div class="carousel-item">
+                <video src="images/KhaledSpace.mp4" width="100%" height="200" controls></video>
+            </div>
+            <div class="carousel-item">
+                <video src="images/KhaledSpace1.mp4" width="100%" height="200" controls></video>
+            </div>
+        </div>
+    </div>
+    </section>
+        <section id="games">
+            <h2><i class="fas fa-gamepad"></i> Attractions</h2>
+            <hr>
+            <div class="category-buttons">
+                <button class="category-button" data-category="Famille">Famille</button>
+                <button class="category-button" data-category="Enfant">Enfant</button>
+                <button class="category-button" data-category="Adulte">Adulte</button>
+            </div>
+         
+            <div class="grid-container">
+             <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia1.jpg" alt="Bateau">
+                <div>
+                    <h3 class="click-here">MMANDO SNIPER </h3>
+                    <p>Prix : 500 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div> 
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia2.jpg" alt="Hautes montagnes">
+                <div>
+                    <h3 class="click-here">VR Racing Kart</h3>
+                    <p>Prix : 500 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia3.jpg" alt="grande roue">
+                <div>
+                    <h3 class="click-here">VR jeux</h3>
+                    <p>Prix : 500 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia4.jpg" alt="Grande Roue">
+                <div>
+                    <h3 class="click-here">300 VR</h3>
+                    <p>Prix : 500 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia5.jpg" alt="Grande Roue">
+                <div>
+                    <h3 class="click-here">VR Magic UFO</h3>
+                    <p>Prix : 500 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+           <!-- </div> -->
+           <!-- <div class="grid-container"> -->
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia6.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Mini Digger</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>  
+           <!-- </div> -->
+         
+          <!-- <div class="grid-container"> -->
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia7.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">ultimate match dx</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia8.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Baby-foot</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Adulte">
+                <img src="images/sidi-yahia8.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Baby-foot</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+          <!-- </div> -->
+         
+          <!-- <div class="grid-container" data-category="Adulte"> -->
+            <div class="game">
+                <img src="images/sidi-yahia9.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Boxing</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia10.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Iron Warrior</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Adulte">
+                <img src="images/sidi-yahia11.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Boxing 2</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia12.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Avion 2personnes</h3>
+                    <p>Prix : 600 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia13.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Shadow Boy</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia14.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Crazy Toy2</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia15.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Air Taxi</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia16.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">jeux</h3>
+                    <p>Prix : 100 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia17.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Happy Athletes</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia18.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Poligon</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia18.jpg" alt="Autos Tamponeuses">
+            <div>
+                <h3 class="click-here">Poligon</h3>
+                <p>Prix : 300 DA</p>
+                <div class="quantity-control">
+                    <button class="quantity-minus">-</button>
+                    <span class="quantity">1</span>
+                    <button class="quantity-plus">+</button>
+                </div>
+                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+            </div>
+        </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia19.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Big 4*4</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia20.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">TREX Fight</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia21.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Out Break</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia22.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Ponto</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia23.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Jurssic Park</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia23.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Jurssic Park</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia24.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Sfeel Ares</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia25.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Cruisn blast</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia26.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">cars</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia27.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Super Bikes2</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia28.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">motogp</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia29.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Tomponage</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia30.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Nitro Speed</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Adulte">
+                <img src="images/sidi-yahia31.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Game</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia31.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Game</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia32.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Moto</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia33.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Magic Biba</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia34.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Bikel On</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia35.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">juice</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia36.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Crazy Farm</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia37.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Treasure Cove</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia38.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Beat Me</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia39.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Leis Disc</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia40.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Mizbo</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia41.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Zango</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia42.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Dumido</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia43.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Basket ball</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Adulte">
+                <img src="images/sidi-yahia43.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Basket ball</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia44.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Jumb Basket</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia45.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Lane Master</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Adulte">
+                <img src="images/sidi-yahia45.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Lane Master</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia46.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Pogo Jump</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia47.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Family Basketball</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia48.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Cuf Cuf</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia49.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">mini cars</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia50.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">mini train</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia51.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">mini horse</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia52.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Worm Hockey</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia53.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Meteor Ball</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia54.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">hello kitty</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+          <!-- </div> -->
+          <!-- <div class="grid-container"> -->
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia55.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Trampoline univers 30min</h3>
+                    <p>Prix : 500 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia58.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Trampoline univers 60min</h3>
+                    <p>Prix : 800 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <!-- <div class="game" data-category="Enfant"> 
+                <img src="images/sidi-yahia57.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Chaussettes obligatoire</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+             </div> -->
+        <!-- </div> -->
+          <!-- <div class="grid-container"> -->
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia56.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Fun Haven 30min</h3>
+                    <p>Prix : 500 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia59.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Fun Haven 60min</h3>
+                    <p>Prix : 800 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <!-- <div class="game" data-category="Enfant"> 
+                <img src="images/sidi-yahia60.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">chaussettes obligatoire</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+             </div> -->
+          <!-- </div> -->
+          <!-- <div class="grid-container"> -->
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia61.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Toddler's playland 30min</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia63.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Toddler's playland 60min</h3>
+                    <p>Prix : 600 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia62.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Chaussettes obligatoires</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+          
+          <!-- </div> -->
+          <!-- <div class="grid-container"> -->
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia64.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Climbing Walls 15min</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia65.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Climbing Walls 30min</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia66.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Climbing Walls 60min</h3>
+                    <p>Prix : 500 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+          <!-- </div> -->
+          <!-- <div class="grid-container"> -->
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia67.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Sandy Adventure 15min</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia68.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Sandy Adventure 30min</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia69.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Sandy Adventure 60min</h3>
+                    <p>Prix : 500 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+          <!-- </div> --> 
+          <!-- <div class="grid-container"> -->
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia70.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Logo world 15min</h3>
+                    <p>Prix : 200 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia71.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Logo world 30min</h3>
+                    <p>Prix : 300 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Enfant">
+                <img src="images/sidi-yahia72.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Logo world 60min</h3>
+                    <p>Prix : 500 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+          <!-- </div> -->
+          <!-- <div class="grid-container"> -->
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia73.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Entree individuelle</h3>
+                    <p>Prix : 1000 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia74.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Entree famille amis 5personnes</h3>
+                    <p>Prix : 4000 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia75.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Ice party 1H</h3>
+                    <p>Prix : 1800 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia76.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Cartes 12 entree</h3>
+                    <p>Prix : 10000 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+          <!-- </div> -->
+          <!-- <div class="grid-container"> -->
+            <div class="game" data-category="Famille">
+                <img src="images/sidi-yahia78.jpg" alt="Autos Tamponeuses">
+                <div>
+                    <h3 class="click-here">Space Party</h3>
+                    <p>Prix : 1500 DA</p>
+                    <div class="quantity-control">
+                        <button class="quantity-minus">-</button>
+                        <span class="quantity">1</span>
+                        <button class="quantity-plus">+</button>
+                    </div>
+                    <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button>
+                </div>
+            </div>
+          </div>   
+        </section>
+
+        <section id="transport">
+            <h2><i class="fas fa-car"></i> Moyens de Transport</h2>
+            <hr>
+            <ul>
+                <li><i class="fas fa-bus"></i> Bus:  Ligne 11, 51, H, 102 .</li>
+                <li><i class="fas fa-taxi" ></i> Taxi, Yassir, Heetch .</li>
+                <li><i class="fas fa-car"></i> Voiture personnelle .</li>
+            </ul>
+        </section>
+        <section id="horaire">
+            <h2>🕒 Les Horaires</h2>
+               <hr>
+            <ul>
+                <li>Lundi: 11:00 - 23:30</li>
+                <li>Mardi: 11:00 - 23:30</li>
+                <li> Mercredi: 11:00 - 23:30</li>
+                <li> Jeudi: 11:00 - 23:30</li>
+                <li> Vendredi: 03:00 - 23:30</li>
+                <li> Samedi: 11:00 - 23:30</li>
+                <li> Dimanche: 11:00 - 23:30</li>
+            </ul>
+        </section>
+        
+    <footer>
+        <div class="social-media">
+            <p>Suivez-nous :</p>
+            <a href="https://www.instagram.com/Khaledspacekids" title="instagram" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCddleW8W5dms4ohe5nHf_2Q" target="_blank" title="tik tok" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.tiktok.com/Khaled Space Kids" target="_blank" title="tik tok" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+        <p>📞 +213 561 936 050</p>
+        <p>📍<strong> Adresse :</strong>Centre Commercial Sidi Yahia, Bir El Djir,Bir El Djir,ولاية وهران </p>
+        <p>&copy; 2025 Space Khaled Kids. Tous droits réservés.</p>
+    </footer>
+
+    <button id="to-top" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+     <div id="modal" class="modal">
+         <span class="close">&times;</span>
+         <div class="modal-content">
+             <img id="modal-img" src="" alt="">
+             <video id="modal-video" controls style="display: none;"></video>
+         </div>
+     </div>
+
+     <div id="panier-circle" title="Panier">
+        <h2 id="panier-icon">🛒</h2> <!-- Icône du panier -->
+    </div>
+    
+    <!-- Ajout du fond semi-transparent pour le modal -->
+    <div id="modal-overlay" style="display:none;">
+        <div id="panier-details">
+            <button id="close-modal">✖</button> <!-- Bouton de fermeture -->
+            <div class="panier-list-container"> <!-- Conteneur pour la liste avec scroll -->
+                <h2>Panier</h2>
+                <ul id="panier-list"></ul>
+            </div>
+            <p id="total-price">Total: 0 DA</p>
+            <button id="checkout-button">Payer</button>
+        </div>
+    </div>
+    <script src="spacekids.js"></script>
+
+   <!-- Dans votre <body> -->
+    <div id="customAlertOverlay" class="alert-overlay">
+        <div class="alert-box">
+          <div class="alert-icon"></div>
+          <div class="alert-content">
+            <h4 class="alert-title">Titre</h4>
+            <p class="alert-message">Message d'alerte</p>
+          </div>
+          <button class="alert-close">&times;</button>
+          <div class="alert-progress"></div>
+        </div>
+      </div>
+</body>
+</html>

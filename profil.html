@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil - Parc Magique</title>
+    <link rel="stylesheet" href="profil.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1><i class="fas fa-user-circle"></i> Mon Profil</h1>
+        <nav>
+            <ul>
+                <li><a href="exple.html"><i class="fas fa-home"></i> Accueil</a></li>
+
+            </ul>
+        </nav>
+    </header>
+
+    <main class="profile-container">
+        <section class="profile-header">
+             <div class="avatar-container"> 
+                <img src="images/avatar.png" alt="Photo de profil" id="profile-avatar">
+             </div> 
+             <h2 id="profile-name">Chargement...</h2>
+             <p id="profile-email">Chargement...</p>
+
+        </section>
+
+        <section class="profile-details">
+            <div class="detail-card">
+                <h3><i class="fas fa-info-circle"></i> Informations personnelles</h3>
+                <div class="detail-item">
+                    <span>Nom complet:</span>
+                    <span id="detail-name"></span>
+                </div>
+                <div class="detail-item">
+                    <span>Email:</span>
+                    <span id="detail-email"></span>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Parc Magique - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Récupérer les données utilisateur
+            const userData = JSON.parse(localStorage.getItem('userData')) || {
+                nom: "Utilisateur",
+                email: "utilisateur@example.com",
+            };
+            
+            // Afficher les informations du profil
+            function displayProfileData() {
+                document.getElementById('profile-name').textContent = userData.nom;
+                document.getElementById('profile-email').textContent = userData.email;
+                document.getElementById('detail-name').textContent = userData.nom;
+                document.getElementById('detail-email').textContent = userData.email;
+  
+                // Pré-remplir le formulaire d'édition
+                document.getElementById('edit-name').value = userData.nom;
+                document.getElementById('edit-email').value = userData.email;
+            }
+            
+            displayProfileData();
+
+            // Gestion de l'avatar
+            document.getElementById('change-avatar').addEventListener('click', function() {
+                document.getElementById('avatar-upload').click();
+            });
+
+            document.getElementById('avatar-upload').addEventListener('change', function(e) {
+                if (e.target.files && e.target.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        document.getElementById('profile-avatar').src = event.target.result;
+                        // Ici vous devriez envoyer l'image au serveur
+                    };
+                    reader.readAsDataURL(e.target.files[0]);
+                }
+            });
+
+            // Gestion des formulaires
+            document.getElementById('edit-profile-link').addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelectorAll('.edit-form').forEach(form => form.classList.add('hidden'));
+                document.getElementById('edit-profile-form').classList.remove('hidden');
+            });
+
+            document.getElementById('change-password-btn').addEventListener('click', function() {
+                document.querySelectorAll('.edit-form').forEach(form => form.classList.add('hidden'));
+                document.getElementById('password-form').classList.remove('hidden');
+            });
+
+            document.getElementById('cancel-edit').addEventListener('click', function() {
+                document.getElementById('edit-profile-form').classList.add('hidden');
+            });
+
+            document.getElementById('cancel-password').addEventListener('click', function() {
+                document.getElementById('password-form').classList.add('hidden');
+            });
+
+            // Soumission du formulaire de profil
+            document.getElementById('profile-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Mettre à jour les données
+                userData.nom = document.getElementById('edit-name').value;
+                userData.email = document.getElementById('edit-email').value;
+                
+                // Sauvegarder dans le localStorage
+                localStorage.setItem('userData', JSON.stringify(userData));
+                
+                // Mettre à jour l'affichage
+                displayProfileData();
+                
+                alert('Profil mis à jour avec succès!');
+                document.getElementById('edit-profile-form').classList.add('hidden');
+            });
+
+            // Soumission du formulaire de mot de passe
+            document.getElementById('change-password-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                const newPassword = document.getElementById('new-password').value;
+                const confirmPassword = document.getElementById('confirm-password').value;
+                
+                if (newPassword !== confirmPassword) {
+                    alert('Les mots de passe ne correspondent pas!');
+                    return;
+                }
+                
+                // Ici vous devriez envoyer les données au serveur
+                alert('Mot de passe changé avec succès!');
+                document.getElementById('password-form').classList.add('hidden');
+                
+                // Réinitialiser le formulaire
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>

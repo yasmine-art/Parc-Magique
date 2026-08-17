@@ -1,0 +1,269 @@
+*{
+    font-family:'Comic Sans MS', cursive, sans-serif ;
+}
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:mistyrose;
+}
+/* Container Principal */
+.login-container {
+    display: flex;
+    width: 750px;
+    height: 450px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Partie Gauche : Image */
+.login-image {
+    flex: 1;
+}
+
+.login-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Partie Droite : Formulaire */
+.login-form {
+    flex: 1;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.login-form h1 {
+    margin-bottom: 20px;
+     color: #B36572;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+label {
+    display: block;
+    font-weight: bold;
+}
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+input:hover {
+    border: 2px solid #B36572;
+    box-shadow: 0 0 10px rgba(179, 101, 114, 0.5);
+    outline: none;
+}
+.btn-submit {
+    width: 60%;
+    padding: 10px;
+    background-color: #B36572;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size:16px;
+    margin-top: 15px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-submit:hover {
+    background-color: #e6b2bb;
+    transform: scale(1.05);
+}
+p a{
+    text-decoration: none;
+    color: #B36572;
+    position: relative;
+    transition: color 0.3s ease;
+}
+p a:hover{
+    color: #e6b2bb;
+}
+p a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: #e6b2bb;
+    bottom: -2px;
+    left: 50%;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+p a:hover::before {
+    width: 100%;
+    left: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: row; /* Conserver la disposition en deux colonnes */
+        width: 90%; /* Largeur réduite pour les petits écrans */
+        height: auto; /* Hauteur automatique pour s'adapter au contenu */
+        margin: 20px auto; /* Centrage du conteneur */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Conservation de l'ombre */
+        border-radius: 10px; /* Conservation des coins arrondis */
+    }
+
+    .login-image {
+        flex: 1; /* L'image occupe 1 partie de l'espace */
+        height: auto; /* Hauteur automatique pour s'adapter */
+    }
+
+    .login-image img {
+        width: 100%; /* Image qui s'étend sur toute la largeur */
+        height: 100%; /* Image qui couvre toute la hauteur */
+        object-fit: cover; /* Conservation du ratio de l'image */
+    }
+
+    .login-form {
+        flex: 1; /* Le formulaire occupe 1 partie de l'espace */
+        padding: 20px; /* Espacement intérieur réduit */
+        text-align: center; /* Centrage du texte */
+    }
+
+    .login-form h1 {
+        font-size: 22px; /* Taille de police légèrement réduite */
+        margin-bottom: 15px; /* Espacement conservé */
+        color: #B36572; /* Conservation de la couleur */
+    }
+
+    .form-group {
+        margin-bottom: 10px; /* Espacement réduit entre les champs */
+        text-align: left; /* Alignement du texte à gauche */
+    }
+
+    input {
+        width: 100%; /* Champ de saisie qui occupe toute la largeur */
+        padding: 8px; /* Padding légèrement réduit */
+        border: 1px solid #ccc; /* Bordure conservée */
+        border-radius: 5px; /* Coins arrondis conservés */
+        transition: border 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transition conservée */
+    }
+
+    input:hover {
+        border: 2px solid #B36572; /* Effet au survol conservé */
+        box-shadow: 0 0 10px rgba(179, 101, 114, 0.5); /* Ombre au survol conservée */
+        outline: none; /* Suppression du contour */
+    }
+
+    .btn-submit {
+        width: 80%; /* Largeur du bouton augmentée */
+        padding: 10px; /* Padding conservé */
+        background-color: #B36572; /* Couleur de fond conservée */
+        color: white; /* Couleur du texte conservée */
+        border: none; /* Suppression de la bordure */
+        border-radius: 10px; /* Coins arrondis conservés */
+        cursor: pointer; /* Curseur pointer conservé */
+        font-size: 14px; /* Taille de police réduite */
+        margin-top: 10px; /* Espacement réduit */
+        font-weight: bold; /* Gras conservé */
+        transition: background-color 0.3s ease, transform 0.2s ease; /* Transition conservée */
+    }
+
+    .btn-submit:hover {
+        background-color: #e6b2bb; /* Effet au survol conservé */
+        transform: scale(1.05); /* Animation au survol conservée */
+    }
+
+    p a {
+        text-decoration: none; /* Suppression du soulignement */
+        color: #B36572; /* Couleur conservée */
+        position: relative; /* Position relative conservée */
+        transition: color 0.3s ease; /* Transition conservée */
+    }
+
+    p a:hover {
+        color: #e6b2bb; /* Effet au survol conservé */
+    }
+
+    p a::before {
+        content: ""; /* Contenu vide pour le pseudo-élément */
+        position: absolute; /* Position absolue conservée */
+        width: 0; /* Largeur initiale à 0 */
+        height: 2px; /* Hauteur de la ligne conservée */
+        background-color: #e6b2bb; /* Couleur de la ligne conservée */
+        bottom: -2px; /* Position en bas conservée */
+        left: 50%; /* Position initiale au centre */
+        transition: width 0.3s ease, left 0.3s ease; /* Transition conservée */
+    }
+
+    p a:hover::before {
+        width: 100%; /* Largeur de la ligne à 100% au survol */
+        left: 0; /* Position à gauche au survol */
+    }
+}
+
+@media (max-width: 480px) {
+    .login-container {
+        width: 95%; /* Largeur encore plus réduite pour les très petits écrans */
+    }
+
+    .login-image {
+        flex: 0.8; /* L'image occupe un peu moins d'espace */
+    }
+
+    .login-form {
+        flex: 1.2; /* Le formulaire occupe un peu plus d'espace */
+        padding: 15px; /* Espacement intérieur réduit */
+    }
+
+    .login-form h1 {
+        font-size: 20px; /* Taille de police réduite */
+    }
+
+    .btn-submit {
+        width: 90%; /* Largeur du bouton augmentée */
+        font-size: 12px; /* Taille de police réduite */
+    }
+
+    p a {
+        font-size: 12px; /* Taille de police réduite pour les liens */
+    }
+}
+/* Style du bouton de retour à l'accueil */
+.home-button {
+    position: fixed; /* Position fixe pour rester visible même en scrollant */
+    top: 8px; /* Position en haut */
+    left: 20px; /* Position à gauche */
+    padding: 10px 20px; /* Espacement intérieur */
+    background: linear-gradient(135deg, #b36572, rgb(242,192,175));
+    color: white; /* Couleur du texte */
+    text-decoration: none; /* Supprimer le soulignement */
+    border-radius: 5px; /* Coins arrondis */
+    font-size: 14px; /* Taille de la police */
+    font-weight: bold; /* Texte en gras */
+    transition: all 0.3s ease; /* Transition pour les effets */
+    z-index: 1000; /* S'assurer qu'il est au-dessus des autres éléments */
+    display: flex; /* Pour aligner l'icône et le texte */
+    align-items: center; /* Centrer verticalement */
+    gap: 8px; /* Espace entre l'icône et le texte */
+}
+
+/* Effet au survol */
+.home-button:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        background: linear-gradient(135deg, rgb(242,192,175), #b36572);
+}
+
+
+    

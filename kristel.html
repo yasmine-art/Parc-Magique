@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏊 Kristel_Park</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="kristel.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1> Kristel Park</h1>
+        <nav>
+            <ul>
+                <li><a href="exple.html" title="home"><i class="fas fa-home"></i></a></li>
+                <li><a href="#services"><i class="fas fa-tools"></i> Services</a></li>
+                <li><a href="#pricing"><i class="fas fa-tags"></i>Tarifs</a></li>
+                <li><a href="#transport"><i class="fas fa-car"></i> Transport</a></li>
+                <li><a href="#horaire"><i class="fas fa-clock"></i> Horaires</a></li>
+            </ul>
+        </nav>
+        <div class="auth-buttons" id="auth-buttons">
+            <!-- État non connecté -->
+            <button class="auth-button" id="login-btn" onclick="window.location.href='login.html'">
+                <i class="fas fa-sign-in-alt"></i> Connexion
+            </button>
+            
+            <!-- État connecté -->
+            <div class="profile-menu" id="user-profile" style="display: none;">
+                <button class="profile-button" id="profile-btn">
+                    <img src="images/avatar.png" alt="Photo de profil" class="profile-pic">
+                </button>
+                <div class="profile-dropdown">
+                    <a href="profil.html"><i class="fas fa-user"></i> Mon profil</a>
+                    <a href="histo.html"><i class="fas fa-history"></i> Historique</a>
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+                </div>
+            </div>
+        </div> 
+    </header>
+    <section id="welcome">
+        <div class="welcome-bg-overlay"></div> 
+        <div class="content">
+            <!-- <img src="images/kristel.jpg" alt="Vue panoramique de Kristel Park" class="welcome-image"> -->
+            <div class="text-content">
+                <h2>Bienvenue à Kristel Park</h2>
+                <p>
+                    Découvrez AquaParc Kristel, un univers aquatique unique et détente se rencontrent.  
+                    Profitez de toboggans spectaculaires, piscines à vagues et espaces relaxants pour une expérience inoubliable en famille ou entre amis !
+                </p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="services">
+        <h2><i class="fas fa-tools"></i> Services Annexes</h2>
+        <hr>
+        <ul>
+            <li>🍴 Restaurants</li>
+            <li>☕ Cafétéria conviviale</li>
+            <li>🧀 Crèmerie</li>
+            <li>🚻 Sanitaires et douches</li>
+            <li>🅿️ Parking  sécurisé</li>
+            <li>👕 Vestiaire</li>
+        </ul>
+        <br><h2>Galerie</h2><hr>
+        <div class="carousel-container">
+            <!-- Flèche gauche -->
+            <button class="carousel-arrow left-arrow" onclick="moveSlide(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <div class="carousel">
+                <div class="carousel-item">
+                    <img src="images/Kristel1.png">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/kristel2.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/kristel3.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/kristel4.jpg">
+                </div>
+                <div class="carousel-item">
+                    <img src="images/kristel5.jpg">
+                </div>
+                <div class="carousel-item">
+                    <video height="200" width="300" src="images/vid_kristel1.mp4" controls></video>
+                </div>
+                <div class="carousel-item">
+                    <video height="200" width="300" src="images/vid_kristel2.mp4" controls></video>
+                  
+                </div>
+                <div class="carousel-item">
+                    <video height="200" width="200" src="images/vid_kristel3.mp4" controls></video>
+                 </div>
+                </div>
+                  <!-- Flèche droite -->
+            <button class="carousel-arrow right-arrow" onclick="moveSlide(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+                </div>
+        </section>
+        
+        <section id="pricing">
+            <h2><i class="fas fa-price"></i> Tarifs</h2>
+            <hr>
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Type de Billet</th>
+                        <th>Tarif</th>
+                        <th>Description</th>
+                        <th colspan="2">Quantité</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="game">
+                        <td><h3>Adulte</h3></td>
+                        <td><p>Prix : 3000 DA</p></td>
+                        <td>Accès complet aux jeux d'eau et espaces communs.</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </td>
+                        <td> <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button></td>
+                    </tr>
+                    <tr class="game">
+                        <td><h3>Enfant -130cm</h3></td>
+                        <td><p>Prix : 1500 DA</p></td>
+                        <td>Inclus l'accès aux zones pour enfants.</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </td>
+                        <td> <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button></td>
+                    </tr>
+                    <tr class="game">
+                        <td><h3>Enfant -80cm</h3></td>
+                        <td><p>Prix : 0 DA</p></td>
+                        <td>Tarif rédit pour les enfants.</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </td>
+                        <td> <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button></td>
+                    </tr>
+                    <tr class="game">
+                        <td><h3>Acces Adulte</h3></td>
+                        <td><p>Prix : 2000 DA</p></td>
+                        <td>Acces espace VIP +jacuzzi.</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </td>
+                        <td> <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button></td>
+                    </tr>
+                    <tr class="game">
+                        <td><h3>Acces Enfant</h3></td>
+                        <td><p>Prix : 1000 DA</p></td>
+                        <td>Acces espace VIP +jacuzzi.</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </td>
+                        <td> <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button></td>
+                    </tr>
+                    <tr class="game">
+                        <td><h3>Adulte/jacuzzi</h3></td>
+                        <td><p>Prix : 1000 DA</p></td>
+                        <td>Accés uniquement jacuzzi.</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </td>
+                        <td> <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button></td>
+                    </tr>
+                    <tr class="game">
+                        <td><h3>Enfant/jacuzzi</h3></td>
+                        <td><p>Prix : 500 DA</p></td>
+                        <td>Accés uniquement jacuzzi.</td>
+                        <td>
+                            <div class="quantity-control">
+                                <button class="quantity-minus">-</button>
+                                <span class="quantity">1</span>
+                                <button class="quantity-plus">+</button>
+                            </div>
+                        </td>
+                        <td> <button class="add-to-cart"><i class="fas fa-shopping-cart"></i></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+       
+        <section id="transport">
+            <h2><i class="fas fa-car"></i> Moyens de Transport</h2>
+            <hr>
+            <ul>
+                <li><i class="fas fa-taxi"></i> Taxi .</li>
+                <li><i class="fas fa-car"></i> Voiture personnelle .</li>
+        
+            </ul>
+        </section>
+        <section id="horaire">
+            <h2>🕒 Les Horaires</h2>
+            <hr>
+            <ul>
+                <li><strong>L'ouverture de park:</strong> 10h00</li>
+                <li><strong>Arret des jeux:</strong> 18h00</li>
+                <li><strong>Arret des douches:</strong>18h00</li>
+                <li><strong>Fermeture de park:</strong>19h00</li>
+                <li style="background-color: rgb(253, 229, 5);"><strong>Mardi journée femmes et les garcons de moins 1,30cm</strong></li>
+                
+            </ul>
+        </section>
+    <footer>
+        <div class="social-media">
+            <p>Suivez-nous :</p>
+            <a href="https://www.facebook.com/kristelparkoran" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.instagram.com/kristhuer41?igsh=aXVjbHlldnRpdjYz" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.twitter.com/kristelpark" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/kristelpark" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.tiktok.com/https://vm.tiktok.com/ZMkCWLTVu/" target="_blank" style="margin: 0 10px; color: white; font-size: 1.5rem;">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+        <p>&copy; 2025 Kristel Park. Tous droits réservés.</p>
+   </footer>
+
+    <button id="to-top" title="Retour en haut"><i class="fas fa-arrow-up"></i></button>
+    <!-- Modal -->
+<div id="modal" class="modal">
+    <span class="close">&times;</span>
+    <div class="modal-content">
+        <img id="modal-img" src="" alt="">
+        <video id="modal-video" controls style="display: none;"></video>
+    </div>
+</div>
+<div id="panier-circle" title="Panier">
+    <h2 id="panier-icon">🛒</h2> <!-- Icône du panier -->
+</div>
+
+<!-- Ajout du fond semi-transparent pour le modal -->
+<div id="modal-overlay" style="display:none;">
+    <div id="panier-details">
+        <button id="close-modal">✖</button> <!-- Bouton de fermeture -->
+        <div class="panier-list-container"> <!-- Conteneur pour la liste avec scroll -->
+            <h2>Panier</h2>
+            <ul id="panier-list"></ul>
+        </div>
+        <p id="total-price">Total: 0 DA</p>
+        <button id="checkout-button">Payer</button>
+    </div>
+</div>
+
+<div id="customAlertOverlay" class="alert-overlay">
+    <div class="alert-box">
+      <div class="alert-icon"></div>
+      <div class="alert-content">
+        <h4 class="alert-title">Titre</h4>
+        <p class="alert-message">Message d'alerte</p>
+      </div>
+      <button class="alert-close">&times;</button>
+      <div class="alert-progress"></div>
+    </div>
+  </div>
+    <script src="kristel.js"></script>
+</body>
+</html>
