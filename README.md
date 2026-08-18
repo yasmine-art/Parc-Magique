@@ -54,6 +54,7 @@ L'application permet de présenter différents parcs et espaces de loisirs à Or
 * Boukaa Beach
 * Aquaparc Rodina
 * Krichtel
+* AZ aquaparc
   
 
 ###  Espace administrateur
