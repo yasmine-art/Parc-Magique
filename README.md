@@ -96,40 +96,7 @@ L'administrateur peut notamment :
 
 ---
 
-## Structure du projet
 
-Parc-Magique/
-│
-├── *.html
-├── *.css
-├── *.js
-├── *.php
-│
-├── images/
-│
-├── administrateur.html
-├── administrateur.js
-├── administrateur.css
-│
-├── login.html
-├── login.php
-├── logout.php
-│
-├── profil.html
-├── profil.php
-│
-├── tickets.php
-├── ticket.html
-├── ticket_detail.html
-├── ticket_detail.php
-│
-├── payment-page.html
-├── payment.css
-├── process_payment.php
-│
-└── ...
-
----
 
 ##  Base de données
 
